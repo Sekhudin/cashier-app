@@ -9,7 +9,7 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
 6. DataBase terdiri dari tabel pengguna, tabel makanan, tabel minuman, tabel kasir, tabel transaksi, tabel dtMakanan, tabel dtMinuman.
 7. Terdapat 6 Menu navigasi: 1.Menu dashboard, 2.menu kasir, 3.menu admin, 4.menu database, 5.menu profile, 6.menu laporan.
 
-#Anggota Team:
+# Anggota Team:
 1. Sekhudin (Saya) - Owner
 2. Wulandari
 3. Akbar Fitrian
@@ -17,13 +17,13 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
 5. Azis
 
 #Detail Untuk setiap Komit
-#================================== COMMIT Pertama (Jum'at, 24 Desember 2021) ==================================
-Progress 30%, Yang ditambahkan:
+# ================================== COMMIT Pertama (Jum'at, 24 Desember 2021) ==================================
+# Progress 30%, Yang ditambahkan:
 - Database disertai korelasi dari setiap tabel.
 - Main Design dari aplikasi sudah terbentuk.
 - Tampilan Menu sudah dibuat. 3 menu sudah terbentuk dari total 6 menu.
 
-#kontribusi tiap anggota
+# kontribusi tiap anggota
 - Sekhudin :
     1. Menentukan tiap tabel dari database.
     2. Implementasi database.
