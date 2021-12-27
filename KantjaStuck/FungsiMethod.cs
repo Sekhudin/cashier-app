@@ -29,23 +29,32 @@ namespace KantjaStuck
         // =============================== GET AUTO ID untuk KASIR ============================
         public string getAutoID(string jenisId)
         { ///^SW\d{4}$/
-            Regex patternKodeTahun = new Regex(@"(\d{4})");
+            // untuk kasir
+            Regex patternKodeTahunBulan = new Regex(@"(\d{4})");
+            // untuk pelanggan
+            Regex patternTanggalBulanTahun = new Regex(@"(\d{6})");
+            // untuk peroleh kode urut
             Regex patternKodeUrut = new Regex(@"(\d{2})$");
-            string bulanIni = DateTime.Now.ToString("yyMM");
+            string tahunBulanIni = DateTime.Now.ToString("yyMM"); // untuk kasir
+            string tanggalBulanTahunIni = DateTime.Now.ToString("ddMMyy");
             string next_ID = "";
             string query = "";
             if (jenisId == "Kasir")
             {
-                query = "SELECT MAX(right(idKasir,6)) FROM kasir";
+                query = "SELECT MAX (idKasir) FROM kasir";
             }else if (jenisId == "Makanan")
             {
-                query = "SELECT MAX(right(idMakanan,4)) FROM makanan";
+                query = "SELECT MAX (idMakanan) FROM makanan";
             }else if (jenisId == "Minuman")
             {
-                query = "SELECT MAX(right(idMinuman,4)) FROM minuman";
+                query = "SELECT MAX (idMinuman) FROM minuman";
             }else if (jenisId == "Transaksi")
             {
-                query = "SELECT MAX(right(noTransaksi,6)) FROM transaksi";
+                query = "SELECT MAX (noTransaksi) FROM transaksi";
+            }
+            else if (jenisId == "Pelanggan")
+            {
+                query = "SELECT MAX(idPelanggan) FROM pelanggan";
             }
             else
             {
@@ -63,14 +72,14 @@ namespace KantjaStuck
                 string kodeUrut = patternKodeUrut.Match(fullstring).Value.ToString();
                 if (jenisId == "Kasir")
                 {
-                    string kodeTahun = patternKodeTahun.Match(fullstring).Value.ToString();
-                    if (fullstring != "" && kodeTahun == bulanIni)
+                    string kodeTahun = patternKodeTahunBulan.Match(fullstring).Value.ToString();
+                    if (fullstring != "" && kodeTahun == tahunBulanIni)
                     {
-                        next_ID = "KS" + bulanIni + "0" + (int.Parse(kodeUrut) + 1).ToString();
+                        next_ID = "KS" + tahunBulanIni + "0" + (int.Parse(kodeUrut) + 1).ToString();
                     }
                     else
                     {
-                        next_ID = "KS" + bulanIni + "01";
+                        next_ID = "KS" + tahunBulanIni + "01";
 
                     }
                 }
@@ -78,34 +87,46 @@ namespace KantjaStuck
                 {
                     if (fullstring != "")
                     {
-                        next_ID = "MK-" + "00" + (int.Parse(kodeUrut) + 1).ToString();
+                        next_ID = "MK-" + "000" + (int.Parse(kodeUrut) + 1).ToString();
                     }
                     else
                     {
-                        next_ID = "MK-" + "00" + "01";
+                        next_ID = "MK-" + "000" + "1";
                     }
                 }
                 else if (jenisId == "Minuman")
                 {
                     if (fullstring != "")
                     {
-                        next_ID = "MN-" + "00" + (int.Parse(kodeUrut) + 1).ToString();
+                        next_ID = "MN-" + "000" + (int.Parse(kodeUrut) + 1).ToString();
                     }
                     else
                     {
-                        next_ID = "MN-" + "00" + "01";
+                        next_ID = "MN-" + "000" + "1";
                     }
                 }
                 else if (jenisId == "Transaksi")
                 {
-                    string kodeTahun = patternKodeTahun.Match(fullstring).Value.ToString();
-                    if (fullstring != "" && kodeTahun == bulanIni)
+                    string kodeTahun = patternKodeTahunBulan.Match(fullstring).Value.ToString();
+                    if (fullstring != "" && kodeTahun == tahunBulanIni)
                     {
-                        next_ID = "TR" + bulanIni + "-0" + (int.Parse(kodeUrut) + 1).ToString();
+                        next_ID = "TR" + tahunBulanIni + "-0" + (int.Parse(kodeUrut) + 1).ToString();
                     }
                     else
                     {
-                        next_ID = "TR" + bulanIni +"-"+ "01";
+                        next_ID = "TR" + tahunBulanIni + "-"+ "01";
+                    }
+                }else if (jenisId == "Pelanggan")
+                {
+                    string kodeTahun = patternTanggalBulanTahun.Match(fullstring).Value.ToString();
+                    if (fullstring != "" && kodeTahun == tanggalBulanTahunIni)
+                    {
+                        next_ID = "PG" + tanggalBulanTahunIni + "-0" + (int.Parse(kodeUrut) + 1).ToString();
+                    }
+                    else
+                    {
+                        next_ID = "PG" + tanggalBulanTahunIni + "-01";
+
                     }
                 }
                 else
@@ -121,7 +142,7 @@ namespace KantjaStuck
             return next_ID;
         }
         //==================== File Upload =====================
-        public string fileNameUpload = "hahaha";
+        public string fileNameUpload = "";
         private string fullPath = "";
         private string extensiGambar = "";
         public void uploadFoto(PictureBox namaPictureBox, Label labelJenis,string jenisUpload)
@@ -146,7 +167,7 @@ namespace KantjaStuck
                 }
                 else if (jenisUpload == "Minuman")
                 {
-                    namaGambar = "MK_" + kodeUnik + extensiGambar;
+                    namaGambar = "MN_" + kodeUnik + extensiGambar;
                 }
                 this.fileNameUpload = namaGambar;
             }
@@ -278,11 +299,6 @@ namespace KantjaStuck
             namaPB.BackgroundImage = b;
             namaLabel.Text = "Avatar";
         }
-
-
-
-
-
         public void loadingWrapper(Panel namaPanel, Timer timerLoad)
         {
             timerLoad.Start();
@@ -330,18 +346,3 @@ namespace KantjaStuck
         }
     }
 }
-/* UNTUK GANTI ICON
-string path = @"E:\KULIAH\SEMESTER 5\FRAMEWORK-IFB\praktikum\KantjaStuck\KantjaStuck\Resources\";
-string namaFile = "";
-if (cbAvatar.SelectedItem == avatar[0])
-{
-    namaFile = avatar[0].ToString() + ".png";
-}
-else if (cbAvatar.SelectedItem == avatar[1])
-{
-    namaFile = avatar[1].ToString() + ".png";
-}
-string fullPath = path + namaFile;
-Bitmap b = new Bitmap(fullPath);
-pb_avatar.BackgroundImage = b;
-*/

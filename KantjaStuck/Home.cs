@@ -55,7 +55,7 @@ namespace KantjaStuck
             };
 
             kom.button_colorPrimary(profile_grupButton, profile_btGantiProfile);
-            kom.textBx_ReadOnly(profile_grupTextBox, true,null);
+            kom.textBx_ReadOnly(profile_grupTextBox, true, null);
             profile_cbAvatar.Items.AddRange(avatar);
 
             profile_wrapperBtGantiProfile.Visible = false;
@@ -76,7 +76,7 @@ namespace KantjaStuck
             {
                 admin_cardTxNama, admin_cardTxHarga_orTelp, admin_cardTxStatusAdmin
             };
-            kom.textBx_ReadOnly(admin_GrupTextBox, true,null);
+            kom.textBx_ReadOnly(admin_GrupTextBox, true, null);
             kom.button_colorPrimary(admin_GrupButton, null);
             admin_cardCB.BackColor = kom.primary;
             admin_cardLabelCB.ForeColor = Color.White;
@@ -89,7 +89,7 @@ namespace KantjaStuck
             admin_cardLabelLabel.ForeColor = Color.White;
             admin_cardTxID.BackColor = kom.primary;
             admin_cbJenisTabel.Items.AddRange(CB_JenisTabel);
-            admin_cardBtHapus.FlatAppearance.MouseDownBackColor=Color.Red;
+            admin_cardBtHapus.FlatAppearance.MouseDownBackColor = Color.Red;
             admin_cardBtHapus.BackColor = Color.FromArgb(192, 0, 0);
             //Visibilitas dan readonly
             admin_cardCB.Visible = false;
@@ -101,7 +101,8 @@ namespace KantjaStuck
             // ======================================================== KASIR ==================================
             TextBox[] kasir_grupTxHeader =
             {
-                textBox17,textBox23,textBox20,textBox22,textBox16,textBox3,textBox15,textBox13,textBox18,textBox21,textBox19,textBox9
+                textBox17,textBox23,textBox20,textBox22,textBox16,textBox3,textBox15,textBox13,textBox18,textBox21,textBox19,textBox9,
+                kasir_cardIdKasir, kasir_cardNoTransaksi, kasir_sumTotalMakanan, kasir_sumTotalMinuman
             };
             Button[] kasir_grupButton =
             {
@@ -119,10 +120,15 @@ namespace KantjaStuck
             kasir_cardHitungCheckOut.BackColor = SystemColors.ControlLight;
             kasir_cardKontainerMakanan.BackColor = SystemColors.ControlLight;
             kasir_cardKontainerMinuman.BackColor = SystemColors.ControlLight;
+            //
+
 
         }
-
-
+        // ============================================================ HOME LOAD ================================================
+        // bagian card pilih menu
+        private string[] daftarMakanan = { };
+        private string[] daftarMinuman = { };
+        private string[] nominalTunai = { "5000", "10000", "15000", "20000", "50000", "100000" };
         private void Home_Load(object sender, EventArgs e)
         {
             wrapperDashBoard.Visible = true;
@@ -140,13 +146,24 @@ namespace KantjaStuck
             BT_DASHBOARD.ForeColor = kom.primary;
 
             //untuk menyimpan data Akun pada variabel --Array InfoAkun--
-            //string uname = Login.setValueUsername;
-            //string pass = fn.Crypt2(Login.setValuePassword);
-            string uname = "Maya";
-            string pass = fn.Crypt2("Maya");
+            string uname = Login.setValueUsername;
+            string pass = fn.Crypt2(Login.setValuePassword);
+            //string uname = "Maya";
+            //string pass = fn.Crypt2("Maya");
             InfoAkun = odb.getInfoKasir(uname, pass);
             //Text Hallo pada Dashboard
             dashboard_txGreeting.Text = "Hallo, " + InfoAkun[2].ToString();
+
+            //==========Kasir
+            daftarMakanan = odb.getDaftarMenu("Makanan");
+            daftarMinuman = odb.getDaftarMenu("Minuman");
+            kasir_chardCBMenuMinuman.Items.AddRange(daftarMinuman);
+            kasir_chardCBMenuMakanan.Items.AddRange(daftarMakanan);
+            kasir_chardCBMenuMinuman.Visible = false;
+            kasir_chardCBMenuMakanan.Visible = false;
+            kasir_cardCBPilihNominal.Items.AddRange(nominalTunai);
+            kasir_cardCBPilihNominal.Visible = false;
+
         }
         //================================================= Method saat Button Navigasi diclick
         private void Navigasi_diCLICK(Button BT_diCLICK, Panel PanelNavigasi)
@@ -211,15 +228,547 @@ namespace KantjaStuck
             kom.button_Minimize(this);
         }
         //======================================================================== NAVIGASI ==========================================================
+        // ======================================================================== DASHBOARD =======================================================
         private void BT_DASHBOARD_Click(object sender, EventArgs e)
         {
             Navigasi_diCLICK(BT_DASHBOARD, wrapperDashBoard);
             dashboard_txGreeting.Text = "Hallo, " + InfoAkun[2].ToString();
         }
-
+        // ======================================================================== KASIR =======================================================
         private void BT_KASIR_Click(object sender, EventArgs e)
         {
             Navigasi_diCLICK(BT_KASIR, wrapperKasir);
+            // get Nama dan ID kasir
+            kasir_cardNamaKasir.Text = InfoAkun[2].ToString();
+            kasir_cardIdKasir.Text = InfoAkun[0].ToString();
+            // get ID pelanggan
+            kasir_cardIdPelanggan.Text = fn.getAutoID("Pelanggan");
+        }
+        // TextBox Dinamis=========
+        int thisUnit = 1;
+        int jarakLeft = 10;
+        int urut = 1;
+        //List komponen dan list pesanan
+        private List<string[]> PesananMakanan = new List<string[]>();
+        private List<string[]> PesananMinuman = new List<string[]>();
+        private List<Component[]> listKomponenMakanan = new List<Component[]>();
+        private List<Component[]> listKomponenMinuman = new List<Component[]>();
+        //bagian pengkasiran
+        //Bagian pengkasiran
+        private static int sumPesananMakanan = 0;
+        private static int sumPesananMinuman = 0;
+        private static int totalHargaSeluruhPesanan = sumPesananMakanan + sumPesananMinuman;
+        private void kasir_cardBtPilih_Click(object sender, EventArgs e)
+        {
+            int top = thisUnit * 100;
+
+            TextBox txId = new TextBox();
+            TextBox txNamaMenu = new TextBox();
+            TextBox txQty = new TextBox();
+            TextBox txTotal = new TextBox();
+            Button btDelete = new Button();
+            //untuk memberi warna textBox dan posisi top
+            TextBox[] txBoxes = { txId, txNamaMenu, txQty, txTotal };
+            Component[] komps = { txId, txNamaMenu, txQty, txTotal, btDelete };
+            string[] kompName = { txId.Name, txNamaMenu.Name, txQty.Name, txTotal.Name, btDelete.Name };
+
+            // untuk memberi warna pada textbox dan jarak atas textbox
+            foreach (TextBox txB in txBoxes)
+            {
+                txB.BackColor = Color.White;
+                txB.ForeColor = kom.primary;
+                txB.Top = thisUnit * 30;
+                txB.BorderStyle = BorderStyle.None;
+                txB.Font = new Font("Poppins", 9, FontStyle.Regular);
+                txB.Height = 20;
+            }
+            txId.Left = jarakLeft;
+            txId.Width = 59;
+            txId.Name = "tbNama" + urut.ToString();
+            txId.TextAlign = HorizontalAlignment.Center;
+            txId.ReadOnly = true;
+            //============
+            txNamaMenu.Left = txId.Width + 40;
+            txNamaMenu.Width = 138;
+            txNamaMenu.Name = "tbMenu" + urut.ToString();
+            txNamaMenu.TextAlign = HorizontalAlignment.Center;
+            txNamaMenu.ReadOnly = true;
+            //===========
+            txQty.Left = txId.Width + txNamaMenu.Width + 50;
+            txQty.Width = 32;
+            txQty.Name = "tbQty" + urut.ToString();
+            txQty.TextAlign = HorizontalAlignment.Center;
+            txQty.ReadOnly = true;
+            //===========
+            txTotal.Left = txId.Width + txNamaMenu.Width + txQty.Width + 50;
+            txTotal.Width = 74;
+            txTotal.Name = "tbTotal" + urut.ToString();
+            txTotal.TextAlign = HorizontalAlignment.Center;
+            txTotal.ReadOnly = true;
+            //============
+            btDelete.Top = thisUnit * 30;
+            btDelete.Left = txId.Width + txNamaMenu.Width + txQty.Width + txTotal.Width + 65;
+            btDelete.Width = 20;
+            btDelete.Height = 20;
+            btDelete.Text = "X";
+            btDelete.Name = "btDelete" + urut.ToString();
+            btDelete.FlatStyle = FlatStyle.Flat;
+            btDelete.BackColor = Color.Red;
+            btDelete.ForeColor = Color.White;
+            btDelete.Font = new Font("Poppins", 6, FontStyle.Bold);
+            btDelete.FlatAppearance.BorderSize = 0;
+
+            if (kasir_cardIdMenu.Text != "" && kasir_cardNamaMenu.Text != "" && kasir_cardHargaMenu.Text != "" && kasir_cardQtyMenu.Text != "" && Information.IsNumeric(kasir_cardQtyMenu.Text))
+            {
+                txId.Text = kasir_cardIdMenu.Text;
+                txNamaMenu.Text = kasir_cardNamaMenu.Text;
+                txQty.Text = kasir_cardQtyMenu.Text;
+                int totalHargaItem= (int.Parse(kasir_cardQtyMenu.Text) * int.Parse(kasir_cardHargaMenu.Text));
+                txTotal.Text = totalHargaItem.ToString("N0");
+                string[] pesanan = { txId.Text, txNamaMenu.Text, txQty.Text, totalHargaItem.ToString() };
+                try
+                {
+                    if (kasir_cardRBMakanan.Checked)
+                    {
+                        btDelete.Click += new EventHandler(buttonHapusDataMakanan_click);
+                        //menampung komponen pada list komponen
+                        foreach (Component komp in komps)
+                        {
+                            kasir_wrapperPesananMakanan.Controls.Add((Control)komp);
+                        }
+                        //Menampung komponen ke dalam list komponen
+                        listKomponenMakanan.Add(komps);
+                        // menampung pesanan pada list pesanan
+                        PesananMakanan.Add(pesanan);
+                        kasir_totalPesananMakanan.Text = PesananMakanan.Count().ToString();
+                        // untuk menghitung sum total pesan
+                        int sum = 0;
+                        foreach (string[] detailPesan in PesananMakanan)
+                        {
+                            sum = sum + int.Parse(detailPesan[3]);
+                        }
+                        sumPesananMakanan = sum;
+                        kasir_sumTotalMakanan.Text = sumPesananMakanan.ToString("N0");
+                    }
+                    else if(kasir_cardRBMinuman.Checked)
+                    {
+                        btDelete.Click += new EventHandler(buttonHapusDataMinuman_click);
+                        //menampung komponen pada list komponen
+                        foreach (Component komp in komps)
+                        {
+                            kasir_wrapperPesananMinuman.Controls.Add((Control)komp);
+                        }
+                        //Menampung komponen ke dalam list komponen
+                        listKomponenMinuman.Add(komps);
+                        // menampung pesanan pada list pesanan
+                        PesananMinuman.Add(pesanan);
+                        kasir_totalPesananMinuman.Text = PesananMinuman.Count().ToString();
+                        // untuk menghitung sum total pesan
+                        int sum = 0;
+                        foreach (string[] detailPesan in PesananMinuman)
+                        {
+                            sum = sum + int.Parse(detailPesan[3]);
+                        }
+                        sumPesananMinuman = sum;
+                        kasir_sumTotalMinuman.Text = sumPesananMinuman.ToString("N0");
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal Menambah pesanan! \n" + ex.Message, "Error");
+                }
+                //reset teks pesanan
+                kasir_cardIdMenu.Clear();
+                kasir_cardNamaMenu.Clear();
+                kasir_cardHargaMenu.Clear();
+                kasir_cardQtyMenu.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Semua wajig di isi!", "Perimgatan");
+            }
+            thisUnit = thisUnit + 1;
+            urut = urut + 1;
+            //menghitung total list
+            //textBox24.Text = listKomponen.Count().ToString();
+        }
+        void buttonHapusDataMakanan_click(object sender, EventArgs e)
+        {
+            //get Button click
+            Button btn = sender as Button;
+            //Untuk Makanan
+            for (int i = 0; i < listKomponenMakanan.Count; i++)
+            {
+                if (listKomponenMakanan[i][4] == btn)
+                {
+                    try
+                    {
+                        //menghapus komponen secara visual
+                        foreach (Component ko in listKomponenMakanan[i])
+                        {
+                            kasir_wrapperPesananMakanan.Controls.Remove((Control)ko);
+                        }
+                        //menghapus listkomponen ke-i
+                        listKomponenMakanan.Remove(listKomponenMakanan[i]);
+                        //menghapus list pesanan
+                        PesananMakanan.Remove(PesananMakanan[i]);
+                        MessageBox.Show("Makanan dihapus!");
+                        // untuk menghitung sum total pesan
+                        int sum = 0;
+                        foreach (string[] detailPesan in PesananMakanan)
+                        {
+                            sum = sum + int.Parse(detailPesan[3]);
+                        }
+                        sumPesananMakanan = sum;
+                        kasir_sumTotalMakanan.Text = sumPesananMakanan.ToString("N0");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Gagal menghapus makanan! \n" + ex.Message, "Error");
+                    }
+                    //hitung list
+                    kasir_totalPesananMakanan.Text = PesananMakanan.Count().ToString();
+                }
+            }
+        }
+        void buttonHapusDataMinuman_click(object sender, EventArgs e)
+        {
+            //get Button click
+            Button btn = sender as Button;
+            //Untuk Minuman
+            for (int i = 0; i < listKomponenMinuman.Count; i++)
+            {
+                if (listKomponenMinuman[i][4] == btn)
+                {
+                    try
+                    {
+                        //menghapus komponen secara visual
+                        foreach (Component ko in listKomponenMinuman[i])
+                        {
+                            kasir_wrapperPesananMinuman.Controls.Remove((Control)ko);
+                        }
+                        //menghapus listkomponen ke-i
+                        listKomponenMinuman.Remove(listKomponenMinuman[i]);
+                        //menghapus list pesanan
+                        PesananMinuman.Remove(PesananMinuman[i]);
+                        MessageBox.Show("Minuman dihapus!");
+                        // untuk menghitung sum total pesan
+                        int sum = 0;
+                        foreach (string[] detailPesan in PesananMinuman)
+                        {
+                            sum = sum + int.Parse(detailPesan[3]);
+                        }
+                        sumPesananMinuman = sum;
+                        kasir_sumTotalMinuman.Text = sumPesananMinuman.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Gagal menghapus minuman! \n" + ex.Message, "Error");
+                    }
+                    //hitung list
+                    kasir_totalPesananMinuman.Text = PesananMinuman.Count().ToString("N0");
+                }
+            }
+        }
+
+
+        private void kasir_cardRBMakanan_CheckedChanged(object sender, EventArgs e)
+        {
+            kasir_cardIdMenu.Clear();
+            kasir_cardNamaMenu.Clear();
+            kasir_cardHargaMenu.Clear();
+            kasir_cardQtyMenu.Clear();
+            if (kasir_cardRBMakanan.Checked)
+            {
+                kasir_chardCBMenuMinuman.Visible = false;
+                kasir_chardCBMenuMakanan.Visible = true;
+            }
+            else
+            {
+                kasir_chardCBMenuMinuman.Visible = true;
+                kasir_chardCBMenuMakanan.Visible = false;
+            }
+
+        }
+
+        private void kasir_cardRBMinuman_CheckedChanged(object sender, EventArgs e)
+        {
+            kasir_cardIdMenu.Clear();
+            kasir_cardNamaMenu.Clear();
+            kasir_cardHargaMenu.Clear();
+            kasir_cardQtyMenu.Clear();
+            if (kasir_cardRBMinuman.Checked)
+            {
+                kasir_chardCBMenuMinuman.Visible = true;
+                kasir_chardCBMenuMakanan.Visible = false;
+            }
+            else
+            {
+                kasir_chardCBMenuMinuman.Visible = false;
+                kasir_chardCBMenuMakanan.Visible = true;
+            }
+
+        }
+
+        private void kasir_chardCBMenuMakanan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string query = "";
+            string[] detailMenu = { };
+            kasir_cardNamaMenu.Text = kasir_chardCBMenuMakanan.Text;
+            if (kasir_cardNamaMenu.Text != "")
+            {
+                query = "SELECT * FROM makanan WHERE namaMakanan='" + kasir_cardNamaMenu.Text + "'";
+                detailMenu = odb.getDetailMenu(query);
+            }
+            kasir_cardIdMenu.Text = detailMenu[0].ToString();
+            kasir_cardHargaMenu.Text = detailMenu[3].ToString();
+            string[] namaJenisFile = { detailMenu[1].ToString(), "NULL" };
+            fn.tampilGambar(kasir_cardPBMenu, namaJenisFile, "Makanan");
+            kasir_cardQtyMenu.Clear();
+        }
+
+        private void kasir_chardCBMenuMinuman_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string query = "";
+            string[] detailMenu = { };
+            kasir_cardNamaMenu.Text = kasir_chardCBMenuMinuman.Text;
+            if (kasir_cardNamaMenu.Text != "")
+            {
+                query = "SELECT * FROM minuman WHERE namaMinuman='" + kasir_cardNamaMenu.Text + "'";
+                detailMenu = odb.getDetailMenu(query);
+            }
+            kasir_cardIdMenu.Text = detailMenu[0].ToString();
+            kasir_cardHargaMenu.Text = detailMenu[3].ToString();
+            string[] namaJenisFile = { detailMenu[1].ToString(), "NULL" };
+            fn.tampilGambar(kasir_cardPBMenu, namaJenisFile, "Minuman");
+            kasir_cardQtyMenu.Clear();
+        }
+        
+        private void kasir_cardBtTambahkan_Click(object sender, EventArgs e)
+        {
+            string noTransaksi = fn.getAutoID("Transaksi");
+            string getTanggal = DateTime.Now.ToString("dd/MM/yyyy");
+            string kasir = kasir_cardIdKasir.Text;
+            int subMakanan = sumPesananMakanan;
+            int subMinuman = sumPesananMinuman;
+            int totalPesanan = sumPesananMakanan + sumPesananMinuman;
+            totalHargaSeluruhPesanan = totalPesanan;
+
+            if (kasir_cardQtyMenu.Text == "")
+            {
+                if(PesananMakanan.Count > 0 || PesananMinuman.Count > 0)
+                {
+                    kasir_cardCBPilihNominal.Visible = true;
+                    kasir_cardNoTransaksi.Text = noTransaksi;
+                    kasir_cardTanggalTransaksi.Text = getTanggal; //Tanggal transaksi
+                    kassir_cardKasirTransaksi.Text = kasir; // kasir yang menangani
+                    kasir_cardSubMakanan.Text = subMakanan.ToString("N0"); //jumlah pesanan makanan
+                    kasir_cardSubMinuman.Text = subMinuman.ToString("N0"); //jumlah pesanan minuman
+                    kasir_cardTotalPesananans.Text = totalPesanan.ToString("N0"); // jumlah pesanan makanan dan minuman
+                    kasir_cardTotalDiskon.Text = "0"; //jumlah total diskon yang diperolwh
+
+                    //set enabe
+                    kasir_cardPilihMenu.Enabled = false;
+                    kasir_cardKontainerMakanan.Enabled = false;
+                    kasir_cardKontainerMinuman.Enabled = false;
+                    kasir_cardBtTambahkan.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Belum ada pesanan yang ditambahkan!", "Peringatan");
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Ada 1 pesanan belum ditambahkan!", "Peringatan");
+            }
+
+            
+        }
+        private void kaisr_cardBtBatal_Click(object sender, EventArgs e)
+        {
+            //set enable dan visible
+            kasir_cardPilihMenu.Enabled = true;
+            kasir_cardKontainerMakanan.Enabled = true;
+            kasir_cardKontainerMinuman.Enabled = true;
+            kasir_cardBtTambahkan.Enabled = true;
+            kasir_cardCBPilihNominal.Visible = false;
+
+            //setText
+            TextBox[] grupTBTransaksi =
+            {
+                kasir_cardNoTransaksi, kasir_cardTanggalTransaksi, kassir_cardKasirTransaksi, kasir_cardSubMakanan,
+                kasir_cardSubMinuman, kasir_cardTotalPesananans, kasir_cardTotalDiskon, kasir_cardTunai, kasir_cardTotalKembalian
+            };
+            foreach(TextBox tb in grupTBTransaksi)
+            {
+                tb.Clear();
+            }
+        }
+        private void kasir_cardCBPilihNominal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int Tunai = int.Parse(kasir_cardCBPilihNominal.Text);
+            int Kembalian = 0;
+            //txbox Tunai
+            kasir_cardTunai.Text = Tunai.ToString("N0");
+            if (Tunai >= totalHargaSeluruhPesanan)
+            {
+                Kembalian= Tunai - totalHargaSeluruhPesanan;
+                kasir_cardTotalKembalian.Text = Kembalian.ToString("N0");
+            }
+            else
+            {
+                MessageBox.Show("Uang tunai Kurang!", "Peringatan");
+                kasir_cardTunai.Clear();
+                kasir_cardTotalKembalian.Clear();
+            }
+        }
+        private void kasir_cardCBNominal_textChanged(object sender, EventArgs e)
+        {
+            int Tunai = 0;
+            int Kembalian = 0;
+            kasir_cardTunai.Text = Tunai.ToString("N0");
+            if (Information.IsNumeric(kasir_cardCBPilihNominal.Text))
+            {
+                Tunai = int.Parse(kasir_cardCBPilihNominal.Text);
+                kasir_cardTunai.Text = Tunai.ToString("N0");
+                if (Tunai >= totalHargaSeluruhPesanan)
+                {
+                    Kembalian = Tunai - totalHargaSeluruhPesanan;
+                    kasir_cardTotalKembalian.Text = Kembalian.ToString("N0");
+                    kasir_cardTransaksiNotifikasi.Clear();
+                    kasir_cardTransaksiNotifikasi.ForeColor = Color.Black;
+                }
+                else
+                {
+                    kasir_cardTransaksiNotifikasi.Text = "Nominal Kurang!";
+                    kasir_cardTransaksiNotifikasi.ForeColor = Color.Red;
+                    kasir_cardTunai.Clear();
+                    kasir_cardTotalKembalian.Clear();
+                }
+            }
+            else
+            {
+                kasir_cardTransaksiNotifikasi.Text = "Harus berupa angka!";
+                kasir_cardTransaksiNotifikasi.ForeColor = Color.Red;
+                kasir_cardTunai.Clear();
+                kasir_cardTotalKembalian.Clear();
+            }
+        }
+        private void kasir_card_BtCheckOut_Click(object sender, EventArgs e)
+        {
+            //Pelanggan
+            string idPelanggan = kasir_cardIdPelanggan.Text;
+            string tanggalDatang = DateTime.Now.ToString("D");
+            string waktuDatang = DateTime.Now.ToString("t");
+            string[] valuePelanggan = { idPelanggan, tanggalDatang, waktuDatang };
+            //Transaksi
+            string idTransaksi = kasir_cardNoTransaksi.Text;
+            string tanggalTransaksi = kasir_cardTanggalTransaksi.Text;
+            string idKasir = kassir_cardKasirTransaksi.Text;
+            string subMakanan = sumPesananMakanan.ToString();
+            string subMinuman = sumPesananMinuman.ToString();
+            string diskon = "0";
+            string totalBayar = totalHargaSeluruhPesanan.ToString();
+            // grup textBox
+            TextBox[] textBoxsTrans =
+            {
+                kasir_cardNoTransaksi, kasir_cardTanggalTransaksi, kassir_cardKasirTransaksi, kasir_cardSubMakanan, kasir_cardSubMinuman, kasir_cardTotalPesananans,
+                kasir_cardTotalDiskon, kasir_cardTunai, kasir_cardTotalKembalian, kasir_sumTotalMakanan, kasir_sumTotalMinuman, kasir_cardTransaksiNotifikasi
+            };
+            //------parameters transaksi
+            SqlParameter noTransaksi = new SqlParameter("@noTransaksi", SqlDbType.VarChar);
+            SqlParameter tanggal = new SqlParameter("@tanggalTrans", SqlDbType.VarChar);
+            SqlParameter pelanggan = new SqlParameter("@idPelanggan", SqlDbType.VarChar);
+            SqlParameter kasir = new SqlParameter("@idKasir", SqlDbType.VarChar);
+            SqlParameter tMakanan = new SqlParameter("@subMakanan", SqlDbType.VarChar);
+            SqlParameter tMinuman = new SqlParameter("@subMinuman", SqlDbType.VarChar);
+            SqlParameter tDiskon = new SqlParameter("@diskon", SqlDbType.VarChar);
+            SqlParameter totBayar = new SqlParameter("@totalBayar", SqlDbType.VarChar);
+            SqlParameter[] valueTransaksi = { noTransaksi, tanggal, pelanggan, kasir, tMakanan, tMinuman, tDiskon, totBayar };
+
+            try
+            {
+                if (valuePelanggan.Length > 0 && valueTransaksi.Length > 0 && (PesananMakanan.Count > 0 || PesananMinuman.Count > 0) && kasir_cardTotalKembalian.Text !="-" 
+                    && kasir_cardNoTransaksi.Text != "-" && kasir_cardTanggalTransaksi.Text !="" && kasir_cardTotalKembalian.Text !="")
+                {
+                    if (odb.insertTable("Pelanggan", valuePelanggan) == true)
+                    {
+                        noTransaksi.Value = idTransaksi;
+                        tanggal.Value = tanggalTransaksi;
+                        pelanggan.Value = idPelanggan;
+                        kasir.Value = idKasir;
+                        tMakanan.Value = subMakanan;
+                        tMinuman.Value = subMinuman;
+                        tDiskon.Value = diskon;
+                        totBayar.Value = totalBayar;
+                        if (odb.commandLoginAdmin("Insert_Transaksi", valueTransaksi) == true)
+                        {
+                            if (odb.insertDataList(idTransaksi, PesananMakanan, PesananMinuman) == true)
+                            {
+                                //reset jumlah pesanan
+                                sumPesananMakanan = 0;
+                                sumPesananMinuman = 0;
+                                totalHargaSeluruhPesanan = 0;
+                                //
+                                MessageBox.Show("berhasil!", "Succes");
+                                // enable tiap komponen
+                                kasir_cardPilihMenu.Enabled = true;
+                                kasir_cardKontainerMakanan.Enabled = true;
+                                kasir_cardKontainerMinuman.Enabled = true;
+                                kasir_cardBtTambahkan.Enabled = true;
+                                // auto idPelanggan
+                                kasir_cardIdPelanggan.Text = fn.getAutoID("Pelanggan");
+                                // clear lis peananan
+                                PesananMakanan.Clear();
+                                PesananMinuman.Clear();
+                                // text total list pesanan
+                                kasir_totalPesananMakanan.Text = PesananMakanan.Count().ToString();
+                                kasir_totalPesananMinuman.Text = PesananMinuman.Count().ToString();
+                                // clear komponen makanan dan minuman
+                                foreach (Component[] komponen in listKomponenMakanan)
+                                {
+                                    foreach(Component komp in komponen)
+                                    {
+                                        kasir_wrapperPesananMakanan.Controls.Remove((Control)komp);
+                                    }
+                                }
+                                foreach (Component[] komponen in listKomponenMinuman)
+                                {
+                                    foreach (Component komp in komponen)
+                                    {
+                                        kasir_wrapperPesananMinuman.Controls.Remove((Control)komp);
+                                    }
+                                }
+                                //clear textBox
+                                foreach(TextBox tbTrans in textBoxsTrans)
+                                {
+                                    tbTrans.Clear();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Record transaksi gagal","Error");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal Bagian transaksi", "Error");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tidak bisa check out.\nProses tidak sesuai prosedur!", "Error");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Gagal!\n" + ex.Message, "Error");
+            }
+
         }
         // ======================================================================= ADMIN =============================================================
         private void BT_ADMIN_Click(object sender, EventArgs e)
@@ -250,6 +799,7 @@ namespace KantjaStuck
                     admin_cardCB.Visible = true;
                     admin_txNamaAfterLogin.Text = namaKasir;
                     admin_txIdAfterLogin.Text = idKasir;
+                    MessageBox.Show("Berhasil Login sebagi admin");
                 }
                 else
                 {
@@ -294,10 +844,13 @@ namespace KantjaStuck
                 admin_cardLabelJenisTabel.Text = "Kasir";
                 //button ubah dan simpan
                 admin_cardBtSimpan.Visible = false;
-                admin_cardBtUbah.Visible = true;
-                //button tambah
+                admin_cardBtUbah.Visible = false;
+                admin_cardBtTambahkan.Visible = false;
+                admin_cardBtHapus.Visible = false;
+                admin_cardPB.BackgroundImage= null;
+                //button tambah dan reset
+                kom.textBx_Reset(admin_GrupTextBox,null);
                 admin_cardBtTambahData.Visible = false;
-                pictureBox2.Visible = true;
                 //=====
                 query = "SELECT idKasir, gambarKasir, namaKasir, noTelepon, statusAdmin, tipeProfil FROM kasir";
             }
@@ -316,10 +869,14 @@ namespace KantjaStuck
                 admin_cardLabelJenisTabel.Text = "Makanan";
                 //button ubah dan simpan
                 admin_cardBtSimpan.Visible = false;
-                admin_cardBtUbah.Visible = true;
-                //button tambah
+                admin_cardBtUbah.Visible = false;
+                admin_cardBtTambahkan.Visible = false;
+                admin_cardBtHapus.Visible = false;
+                admin_cardPB.BackgroundImage = null;
+                //button tambah dan reset
+                kom.textBx_Reset(admin_GrupTextBox, null);
                 admin_cardBtTambahData.Visible = true;
-                pictureBox2.Visible = true;
+                admin_cardPB.Visible = true;
                 //===
                 query = "SELECT * FROM makanan";
             }
@@ -338,10 +895,14 @@ namespace KantjaStuck
                 admin_cardLabelJenisTabel.Text = "Minuman";
                 //button ubah dan simpan
                 admin_cardBtSimpan.Visible = false;
-                admin_cardBtUbah.Visible = true;
-                //button tambah
+                admin_cardBtUbah.Visible = false;
+                admin_cardBtTambahkan.Visible = false;
+                admin_cardBtHapus.Visible = false;
+                admin_cardPB.BackgroundImage = null;
+                //button tambah dan reset
+                kom.textBx_Reset(admin_GrupTextBox, null);
                 admin_cardBtTambahData.Visible = true;
-                pictureBox2.Visible = true;
+                admin_cardPB.Visible = true;
 
                 //===
                 query = "SELECT * FROM minuman";
@@ -355,13 +916,16 @@ namespace KantjaStuck
                 admin_cardDetail.Enabled = false;
                 kom.textBx_Reset(admin_GrupTextBox, null);
                 //label text
-                admin_cardLabelJenisTabel.Text = "";
+                admin_cardLabelJenisTabel.Text = "Tipe";
                 //button ubah dan simpan
                 admin_cardBtSimpan.Visible = false;
-                admin_cardBtUbah.Visible = true;
-                //button tambah
+                admin_cardBtUbah.Visible = false;
+                admin_cardBtTambahkan.Visible = false;
+                admin_cardBtHapus.Visible = false;
+                admin_cardPB.BackgroundImage = null;
+                //button tambah dan reset
+                kom.textBx_Reset(admin_GrupTextBox, null);
                 admin_cardBtTambahData.Visible = true;
-                pictureBox2.Visible = false;
                 //===
                 query = "SELECT * FROM transaksi";
             }
@@ -371,9 +935,10 @@ namespace KantjaStuck
                 //button ubah dan simpan
                 admin_cardBtSimpan.Visible = false;
                 admin_cardBtUbah.Visible = true;
-                //button tambah
+                //button tambah dan reset
+                kom.textBx_Reset(admin_GrupTextBox, null);
                 admin_cardBtTambahData.Visible = true;
-                pictureBox2.Visible = true;
+                admin_cardPB.Visible = true;
                 query = "NULL";
             }
             odb.showDataGV(query, admin_gvTabel);
@@ -403,17 +968,62 @@ namespace KantjaStuck
         }
         private void admin_cardBtSimpan_Click(object sender, EventArgs e)
         {
-            TextBox[] admin_GrupTextBox =
+            string id = admin_cardTxID.Text;
+            string gambar = fn.fileNameUpload;// set deafault nama gambar
+            string namaMenu = admin_cardTxNama.Text;
+            string hargaMenu = admin_cardTxHarga_orTelp.Text;
+            string jenisUpload = admin_cardLabelJenisTabel.Text;
+            if (id != "" && namaMenu != "" && Information.IsNumeric(admin_cardTxHarga_orTelp.Text))
             {
-                admin_cardTxID,admin_cardTxNama, admin_cardTxHarga_orTelp, admin_cardTxStatusAdmin
-            };
-            kom.textBx_ReadOnly(admin_GrupTextBox, true, null);
-            admin_cardTxID.BackColor = kom.primary;
-            admin_cardBtUbahFoto.Visible = false;
-            //button ubah dan simpan dan upload gambar
-            admin_cardBtSimpan.Visible = false;
-            admin_cardBtUbah.Visible = true;
-            admin_cardBtUpload.Visible = false;
+                string query = "";
+                string queryTampil = "";
+                if (admin_cardLabelJenisTabel.Text == "Makanan")
+                {
+                    if(gambar == "")
+                    {
+                        gambar = label28.Text;
+                    }
+                    query = "UPDATE makanan set gambarMakanan='"+gambar+"', namaMakanan='"+ namaMenu + "', hargaMakanan='"+ hargaMenu + "' WHERE idMakanan='"+id+"'";
+                    queryTampil = "SELECT * FROM makanan WHERE idMakanan='" + id + "'";
+                }
+                else if (admin_cardLabelJenisTabel.Text == "Minuman")
+                {
+                    if (gambar == "")
+                    {
+                        gambar = label28.Text;
+                    }
+                    query = "UPDATE minuman set gambarMinuman='" + gambar + "', namaMinuman='" + namaMenu + "', hargaMinuman='" + hargaMenu + "' WHERE idMinuman='" + id + "'";
+                    queryTampil = "SELECT * FROM minuman WHERE idMinuman='" + id + "'";
+                }else if(admin_cardLabelJenisTabel.Text == "Kasir")
+                {
+                    if (gambar == "")
+                    {
+                        gambar = label28.Text;
+                    }
+                    string statusAdmin = admin_cardTxStatusAdmin.Text;
+                    query = "UPDATE kasir SET statusAdmin='"+ statusAdmin + "' WHERE idKasir='"+id+"'";
+                    queryTampil = "SELECT idKasir, gambarKasir, namaKasir, noTelepon, statusAdmin, tipeProfil FROM kasir WHERE idKasir='" + id + "'";
+                }
+                fn.saveUploaded(jenisUpload);
+                odb.iudDataTunggal(query, "update");
+                odb.showDataGV(queryTampil, admin_gvTabel);
+                admin_cardPB.BackgroundImage = null;
+                //After
+                TextBox[] admin_GrupTextBox = { admin_cardTxID, admin_cardTxNama, admin_cardTxHarga_orTelp, admin_cardTxStatusAdmin };
+                kom.textBx_ReadOnly(admin_GrupTextBox, true, null);
+                kom.textBx_Reset(admin_GrupTextBox, null);
+                admin_cardTxID.BackColor = kom.primary;
+                admin_cardBtUbahFoto.Visible = false;
+                //button ubah dan simpan dan upload gambar
+                admin_cardBtSimpan.Visible = false;
+                admin_cardBtUbah.Visible = false;
+                admin_cardBtUpload.Visible = false;
+                admin_cardBtHapus.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Berhasil!\nTidak ada perubahan data", "Succes");
+            }
         }
         private void admin_cardBtUbahFoto_Click(object sender, EventArgs e)
         {
@@ -421,6 +1031,8 @@ namespace KantjaStuck
         }
         private void admin_cardBtUpload_Click(object sender, EventArgs e) //ButtonUploadGambar
         {
+            string jenisUpload = admin_cardLabelJenisTabel.Text;
+            fn.uploadFoto(admin_cardPB, label28, jenisUpload);
             admin_cardBtUpload.Visible = false;
         }
         private void admin_cardBtTambahData_Click(object sender, EventArgs e)
@@ -431,81 +1043,158 @@ namespace KantjaStuck
             };
             kom.textBx_Reset(admin_GrupTextBox, null);
             kom.textBx_ReadOnly(admin_GrupTextBox, false, admin_cardTxID);
+            // visibilitas
             admin_cardBtTambahkan.Visible = true;
             admin_cardBtSimpan.Visible = false;
             admin_cardBtUbah.Visible = false;
             admin_cardBtUbahFoto.Visible = true;
-        }
-        private void admin_cardBtTambahkan_Click(object sender, EventArgs e)
-        {
-            TextBox[] admin_GrupTextBox =
+            // logika if
+            if (admin_cardLabelJenisTabel.Text == "Makanan")
             {
-                admin_cardTxID,admin_cardTxNama, admin_cardTxHarga_orTelp, admin_cardTxStatusAdmin
-            };
-            kom.textBx_Reset(admin_GrupTextBox, null);
-            kom.textBx_ReadOnly(admin_GrupTextBox, true, admin_cardTxID);
-            admin_cardTxID.BackColor = kom.primary;
-            admin_cardBtTambahkan.Visible = false;
-            admin_cardBtSimpan.Visible = false;
-            admin_cardBtUbah.Visible = true;
-            admin_cardBtUbahFoto.Visible = false;
-        }
-        private void admin_gvTabel_cellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int indexRow = admin_gvTabel.CurrentRow.Index;
-            string key_id = admin_gvTabel.Rows[indexRow].Cells[0].Value.ToString();
-            string query = "";
-
-            string id = admin_gvTabel.Rows[indexRow].Cells[0].Value.ToString();
-            string gambar = admin_gvTabel.Rows[indexRow].Cells[1].Value.ToString();
-            string nama = admin_gvTabel.Rows[indexRow].Cells[2].Value.ToString();
-            string harga = "";
-            string statusAdmin = "";
-            string jenisGambar = "";
-            string jenisFile = "";
-
-            if (admin_cardLabelJenisTabel.Text == "Kasir")
-            {
-                harga = admin_gvTabel.Rows[indexRow].Cells[3].Value.ToString();
-                statusAdmin = admin_gvTabel.Rows[indexRow].Cells[4].Value.ToString();
-                query = "SELECT idKasir, gambarKasir, namaKasir, noTelepon, statusAdmin, tipeProfil FROM kasir WHERE idKasir = '" + key_id + "'";
-                jenisGambar = "Profil";
-                jenisFile = admin_gvTabel.Rows[indexRow].Cells[5].Value.ToString();
-            }
-            else if (admin_cardLabelJenisTabel.Text == "Makanan")
-            {
-                harga = admin_gvTabel.Rows[indexRow].Cells[3].Value.ToString();
-                statusAdmin = "";
-                query= "SELECT * FROM makanan WHERE idMakanan = '" + key_id + "'";
-                jenisGambar = "Makanan";
-                jenisFile = "NULL";
+                admin_cardTxID.Text = fn.getAutoID("Makanan");
             }
             else if (admin_cardLabelJenisTabel.Text == "Minuman")
             {
-                harga = admin_gvTabel.Rows[indexRow].Cells[3].Value.ToString();
-                statusAdmin = "";
-                query = "SELECT * FROM minuman WHERE idMinuman = '" + key_id + "'";
-                jenisGambar = "Minuman";
-                jenisFile = "NULL";
+                admin_cardTxID.Text = fn.getAutoID("Minuman");
             }
-            else //ketika transaksi
-            {
-
-            }
-            admin_cardTxID.Text = id;
-            admin_cardTxNama.Text = nama;
-            admin_cardTxHarga_orTelp.Text = harga;
-            admin_cardTxStatusAdmin.Text = statusAdmin;
-            odb.showDataGV(query, admin_gvTabel);
-            string[] NamajenisFile = { gambar, jenisFile };
-            fn.tampilGambar(pictureBox2, NamajenisFile, jenisGambar);
         }
-        /*tx_idCustomer.Text = admin_gvTabel.Rows[indexRow].Cells[0].Value.ToString();
-            tx_idCustomer.ReadOnly = true;
-            tx_namaCustomer.Text = admin_gvTabel.Rows[indexRow].Cells[1].Value.ToString();
-            tx_isiVoucher.Text = admin_gvTabel.Rows[indexRow].Cells[2].Value.ToString();
+        private void admin_cardBtTambahkan_Click(object sender, EventArgs e)
+        {
+            string id = admin_cardTxID.Text;
+            string gambar = fn.fileNameUpload;// setGambarNama
+            string namaMenu = admin_cardTxNama.Text;
+            string hargaMenu = admin_cardTxHarga_orTelp.Text;
+            string jenisUpload = admin_cardLabelJenisTabel.Text;
+            if (id != "" && gambar !="" && namaMenu !="" && Information.IsNumeric(admin_cardTxHarga_orTelp.Text))
+            {
+                string query = "";
+                string queryTampil = "";
+                if (admin_cardLabelJenisTabel.Text == "Makanan")
+                {
+                    query = "INSERT INTO makanan(idMakanan, gambarMakanan, namaMakanan, hargaMakanan)" +
+                        "VALUES ('"+ id + "','"+ gambar + "','"+ namaMenu + "','"+ hargaMenu + "')";
+                    queryTampil="SELECT * FROM makanan WHERE idMakanan='"+id+"'";
+                }
+                else if (admin_cardLabelJenisTabel.Text == "Minuman")
+                {
+                    query = "INSERT INTO minuman(idMinuman, gambarMinuman, namaMinuman, hargaMinuman)" +
+                        "VALUES ('" + id + "','" + gambar + "','" + namaMenu + "','" + hargaMenu + "')";
+                    queryTampil = "SELECT * FROM minuman WHERE idMinuman='" + id + "'";
+                }
+                fn.saveUploaded(jenisUpload);
+                odb.iudDataTunggal(query, "Tambahkan");
+                odb.showDataGV(queryTampil, admin_gvTabel);
+                admin_cardPB.BackgroundImage = null;
+                //After
+                TextBox[] admin_GrupTextBox = { admin_cardTxID, admin_cardTxNama, admin_cardTxHarga_orTelp, admin_cardTxStatusAdmin };
+                kom.textBx_Reset(admin_GrupTextBox, null);
+                kom.textBx_ReadOnly(admin_GrupTextBox, true, admin_cardTxID);
+                admin_cardTxID.BackColor = kom.primary;
+                admin_cardBtTambahkan.Visible = false;
+                admin_cardBtSimpan.Visible = false;
+                admin_cardBtUbah.Visible = false;
+                admin_cardBtUbahFoto.Visible = false;
+                admin_cardBtHapus.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Kolom wajin diisi!", "Peringatan");
+            }
+        }
+        private void admin_gvTabel_cellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int indexRow = admin_gvTabel.CurrentRow.Index;
+                string key_id = admin_gvTabel.Rows[indexRow].Cells[0].Value.ToString();
 
-            showData(query, gridView_Customer);*/
+                string id = admin_gvTabel.Rows[indexRow].Cells[0].Value.ToString();
+                string gambar = admin_gvTabel.Rows[indexRow].Cells[1].Value.ToString();
+                string nama = admin_gvTabel.Rows[indexRow].Cells[2].Value.ToString();
+                string harga, statusAdmin, jenisGambar, jenisFile;
+
+                if (admin_cbJenisTabel.Text == "Kasir")
+                {
+                    harga = admin_gvTabel.Rows[indexRow].Cells[3].Value.ToString();
+                    statusAdmin = admin_gvTabel.Rows[indexRow].Cells[4].Value.ToString();
+                    jenisGambar = "Profil";
+                    jenisFile = admin_gvTabel.Rows[indexRow].Cells[5].Value.ToString();
+                    //
+                    admin_cardBtSimpan.Visible = true;
+                    admin_cardBtUbah.Visible = true;
+                    admin_cardBtTambahkan.Visible = false;
+                    admin_cardBtHapus.Visible = true;
+                    //
+                    admin_cardTxID.Text = id;
+                    admin_cardTxNama.Text = nama;
+                    admin_cardTxHarga_orTelp.Text = harga;
+                    admin_cardTxStatusAdmin.Text = statusAdmin;
+                    //odb.showDataGV(query, admin_gvTabel);
+                    string[] NamajenisFile = { gambar, jenisFile };
+                    fn.tampilGambar(admin_cardPB, NamajenisFile, jenisGambar);
+                }
+                else if (admin_cbJenisTabel.Text == "Makanan")
+                {
+                    harga = admin_gvTabel.Rows[indexRow].Cells[3].Value.ToString();
+                    statusAdmin = "";
+                    jenisGambar = "Makanan";
+                    jenisFile = "NULL";
+                    //
+                    admin_cardBtSimpan.Visible = true;
+                    admin_cardBtUbah.Visible = true;
+                    admin_cardBtTambahkan.Visible = false;
+                    admin_cardBtHapus.Visible = true;
+                    //
+                    admin_cardTxID.Text = id;
+                    admin_cardTxNama.Text = nama;
+                    admin_cardTxHarga_orTelp.Text = harga;
+                    admin_cardTxStatusAdmin.Text = statusAdmin;
+                    //namaGambar
+                    label28.Text = gambar;
+                    //odb.showDataGV(query, admin_gvTabel);
+                    string[] NamajenisFile = { gambar, jenisFile };
+                    fn.tampilGambar(admin_cardPB, NamajenisFile, jenisGambar);
+                }
+                else if (admin_cbJenisTabel.Text == "Minuman")
+                {
+                    harga = admin_gvTabel.Rows[indexRow].Cells[3].Value.ToString();
+                    statusAdmin = "";
+                    jenisGambar = "Minuman";
+                    jenisFile = "NULL";
+                    //
+                    admin_cardBtSimpan.Visible = true;
+                    admin_cardBtUbah.Visible = true;
+                    admin_cardBtTambahkan.Visible = false;
+                    admin_cardBtHapus.Visible = true;
+                    //
+                    admin_cardTxID.Text = id;
+                    admin_cardTxNama.Text = nama;
+                    admin_cardTxHarga_orTelp.Text = harga;
+                    admin_cardTxStatusAdmin.Text = statusAdmin;
+                    //namaGambar
+                    label28.Text = gambar;
+                    //odb.showDataGV(query, admin_gvTabel);
+                    string[] NamajenisFile = { gambar, jenisFile };
+                    fn.tampilGambar(admin_cardPB, NamajenisFile, jenisGambar);
+                }
+                else if (admin_cbJenisTabel.Text == "Transaksi")//ketika transaksi
+                {
+                    admin_cardBtSimpan.Visible = false;
+                    admin_cardBtUbah.Visible = false;
+                    admin_cardBtTambahkan.Visible = false;
+                    admin_cardBtHapus.Visible = false;
+
+                    string query_dtMakanan = "SELECT * FROM dtMakanan WHERE noTransaksi = '" + key_id + "'";
+                    string query_dtMinuman = "SELECT * FROM dtMinuman WHERE noTransaksi = '" + key_id + "'";
+                    odb.showDataGV(query_dtMakanan, admin_gvDetailMakanan);
+                    odb.showDataGV(query_dtMinuman, admin_gvDetailMinuman);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Tabel kosong!\n" + ex.Message, "Peringatan");
+            }
+        }
         //======================================================================= DATABASE ===========================================================
         private void BT_DATABASE_Click(object sender, EventArgs e)
         {
@@ -671,149 +1360,13 @@ namespace KantjaStuck
             Navigasi_diCLICK(BT_LAPORAN, wrapperLaporan);
         }
         //====================================================================================================
-        int thisUnit = 1;
-        int jarakLeft = 10;
-        int urut = 1;
-        public List<string[]> PesananMakanan = new List<string[]>();
-        public List<Component[]> listKomponen = new List<Component[]>();
+        
         private void button11_Click(object sender, EventArgs e)
         {
-            int top = thisUnit * 100;
-
-            TextBox txId = new TextBox();
-            TextBox txNamaMenu = new TextBox();
-            TextBox txQty = new TextBox();
-            TextBox txTotal = new TextBox();
-            Button btDelete = new Button();
-            //untuk memberi warna textBox dan posisi top
-            TextBox[] txBoxes = { txId, txNamaMenu, txQty, txTotal };
-            Component[] komps = { txId, txNamaMenu, txQty, txTotal, btDelete };
-            string[] kompName = { txId.Name, txNamaMenu.Name, txQty.Name, txTotal.Name, btDelete.Name };
-           
-            // untuk memberi warna pada textbox dan jarak atas textbox
-            foreach (TextBox txB in txBoxes)
-            {
-                txB.BackColor = SystemColors.ControlLight;
-                txB.ForeColor = kom.primary;
-                txB.Top = thisUnit * 30;
-                txB.BorderStyle = BorderStyle.None;
-                txB.Font = new Font("Poppins", 9, FontStyle.Regular);
-                txB.Height = 20;
-            }
-            txId.Left = jarakLeft;
-            txId.Name = "tbNama" + urut.ToString();
-            txId.TextAlign = HorizontalAlignment.Center;
-            txId.Width = 59;
-            //============
-            txNamaMenu.Left = txId.Width + 20;
-            txNamaMenu.Width = 138;
-            txNamaMenu.Name = "tbMenu" + urut.ToString();
-            //===========
-            txQty.Left = txId.Width + txNamaMenu.Width + 30;
-            txQty.Width = 32;
-            txQty.Name = "tbQty" + urut.ToString();
-            //===========
-            txTotal.Left = txId.Width + txNamaMenu.Width + txQty.Width + 40;
-            txTotal.Width = 74;
-            txTotal.Name = "tbTotal" + urut.ToString();
-            //============
-            btDelete.Top = thisUnit * 30;
-            btDelete.Left = txId.Width + txNamaMenu.Width + txQty.Width + txTotal.Width + 50;
-            btDelete.Width = 20;
-            btDelete.Height = 20;
-            btDelete.Text = "X";
-            btDelete.Name = "btDelete" + urut.ToString();
-            btDelete.FlatStyle = FlatStyle.Flat;
-            btDelete.BackColor = Color.Red;
-            btDelete.ForeColor = Color.White;
-            btDelete.Font = new Font("Poppins", 6, FontStyle.Bold);
-            btDelete.FlatAppearance.BorderSize = 0;
-            btDelete.Click += new EventHandler(buttonHapusData_click);
-
-            if (textBox25.Text != "" && textBox26.Text !="" && textBox27.Text != "" && textBox28.Text != "")
-            {
-                txId.Text = textBox25.Text;
-                txNamaMenu.Text = textBox26.Text;
-                txQty.Text = textBox27.Text;
-                txTotal.Text = textBox28.Text;
-                string[] pesanan = { txId.Text, txNamaMenu.Text, txQty.Text, txTotal.Text };
-                try
-                {
-                    //menampung komponen pada list komponen
-                    foreach (Component komp in komps)
-                    {
-                        flowLayoutPanel1.Controls.Add((Control)komp);
-                    }
-                    //Menampung komponen ke dalam list komponen
-                    listKomponen.Add(komps);
-                    // menampung pesanan pada list pesanan
-                    PesananMakanan.Add(pesanan);
-                    // menampilkan item dari lis pesan makanan
-                    listBox1.Items.Add(pesanan[0]);
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Gagal Menambah pesanan! \n"+ex.Message, "Error");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Semua wajig di isi!", "Perimgatan");
-            }
-            thisUnit = thisUnit + 1;
-            urut = urut + 1;
-            //menghitung total list
-            textBox24.Text = listKomponen.Count().ToString();
-            textBox29.Text = PesananMakanan.Count().ToString();
-
-            //reset teks pesanan
-            textBox25.Clear();
-            textBox26.Clear();
-            textBox27.Clear();
-            textBox28.Clear();
-
-
-        }
-        //create user define func
-        void buttonHapusData_click(object sender, EventArgs e)
-        {
-            //get Button click
-            Button btn = sender as Button;
-            for(int i=0; i<listKomponen.Count; i++)
-            {
-                if (listKomponen[i][4] == btn)
-                {
-                    //menghapus komponen secara visual
-                    foreach (Component ko in listKomponen[i])
-                    {
-                        flowLayoutPanel1.Controls.Remove((Control)ko);
-                    }
-                    //menghapus listkomponen ke-i
-                    listKomponen.Remove(listKomponen[i]);
-                    //menghapus list pesanan
-                    PesananMakanan.Remove(PesananMakanan[i]);
-                    //menghapus pada tampilan
-                    try
-                    {
-                        listBox1.Items.Remove(PesananMakanan[i]);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    //hitung list
-                    textBox24.Text = listKomponen.Count().ToString();
-                    textBox29.Text = PesananMakanan.Count().ToString();
-                }
-            }
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        
     }
 }
 

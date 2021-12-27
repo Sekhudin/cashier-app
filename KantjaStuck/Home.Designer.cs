@@ -62,14 +62,16 @@ namespace KantjaStuck
             this.dashboard_txGreeting = new System.Windows.Forms.Label();
             this.wrapperKasir = new System.Windows.Forms.Panel();
             this.kasir_cardKontainerMinuman = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.kasir_wrapperPesananMinuman = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.kasir_sumTotalMinuman = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.kasir_cardKontainerMakanan = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.kasir_wrapperPesananMakanan = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox23 = new System.Windows.Forms.TextBox();
+            this.kasir_sumTotalMakanan = new System.Windows.Forms.TextBox();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -79,40 +81,45 @@ namespace KantjaStuck
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox21 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.kasir_cardCBPilihNominal = new System.Windows.Forms.ComboBox();
+            this.kassir_cardKasirTransaksi = new System.Windows.Forms.TextBox();
+            this.kasir_cardTotalKembalian = new System.Windows.Forms.TextBox();
+            this.kasir_cardTunai = new System.Windows.Forms.TextBox();
+            this.kasir_cardTotalDiskon = new System.Windows.Forms.TextBox();
+            this.kasir_cardSubMinuman = new System.Windows.Forms.TextBox();
             this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.kasir_cardTotalPesananans = new System.Windows.Forms.TextBox();
             this.kasir_card_BtCheckOut = new System.Windows.Forms.Button();
             this.kaisr_cardBtBatal = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.kasir_cardSubMakanan = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.kasir_cardTanggalTransaksi = new System.Windows.Forms.TextBox();
+            this.kasir_totalPesananMinuman = new System.Windows.Forms.TextBox();
+            this.kasir_totalPesananMakanan = new System.Windows.Forms.TextBox();
             this.kasir_cardPilihMenu = new System.Windows.Forms.Panel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.kasir_cardRBMakanan = new System.Windows.Forms.RadioButton();
+            this.kasir_cardRBMinuman = new System.Windows.Forms.RadioButton();
+            this.kasir_cardPBMenu = new System.Windows.Forms.PictureBox();
+            this.kasir_cardIdPelanggan = new System.Windows.Forms.TextBox();
+            this.kasir_cardIdMenu = new System.Windows.Forms.TextBox();
+            this.kasir_cardQtyMenu = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.kasir_cardNamaMenu = new System.Windows.Forms.TextBox();
+            this.kasir_cardHargaMenu = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.kasir_cardIdKasir = new System.Windows.Forms.TextBox();
             this.kasir_cardBtPilih = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.kasir_cardNamaKasir = new System.Windows.Forms.Label();
+            this.kasir_chardCBMenuMinuman = new System.Windows.Forms.ComboBox();
+            this.kasir_chardCBMenuMakanan = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.kasir_cardNoTransaksi = new System.Windows.Forms.TextBox();
             this.kasir_cardBtTambahkan = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -138,7 +145,7 @@ namespace KantjaStuck
             this.admin_cardLbHarga_orTelp = new System.Windows.Forms.Label();
             this.admin_cardLbNama = new System.Windows.Forms.Label();
             this.admin_cardLabelJenisTabel = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.admin_cardPB = new System.Windows.Forms.PictureBox();
             this.admin_cardTxNama = new System.Windows.Forms.TextBox();
             this.admin_cardTxStatusAdmin = new System.Windows.Forms.TextBox();
             this.admin_cardTxHarga_orTelp = new System.Windows.Forms.TextBox();
@@ -190,10 +197,8 @@ namespace KantjaStuck
             this.profile_btUbah = new System.Windows.Forms.Button();
             this.wrapperLaporan = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.textBox37 = new System.Windows.Forms.TextBox();
+            this.kasir_cardTransaksiNotifikasi = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.wrapperHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.wrapperBarPencarian.SuspendLayout();
@@ -205,7 +210,7 @@ namespace KantjaStuck
             this.kasir_cardKontainerMakanan.SuspendLayout();
             this.kasir_cardHitungCheckOut.SuspendLayout();
             this.kasir_cardPilihMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kasir_cardPBMenu)).BeginInit();
             this.wrapperAdmin.SuspendLayout();
             this.admin_cardCB.SuspendLayout();
             this.admin_cardGridView.SuspendLayout();
@@ -215,7 +220,7 @@ namespace KantjaStuck
             ((System.ComponentModel.ISupportInitialize)(this.admin_gvTabel)).BeginInit();
             this.admin_cardDetail.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.admin_cardPB)).BeginInit();
             this.admin_cardAfterLogin.SuspendLayout();
             this.admin_cardLogin.SuspendLayout();
             this.wrapperDatabase.SuspendLayout();
@@ -329,7 +334,7 @@ namespace KantjaStuck
             this.textBox_Cari.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.textBox_Cari.Name = "textBox_Cari";
             this.textBox_Cari.Padding = new System.Windows.Forms.Padding(10, 5, 0, 5);
-            this.textBox_Cari.Size = new System.Drawing.Size(110, 23);
+            this.textBox_Cari.Size = new System.Drawing.Size(20, 23);
             this.textBox_Cari.Text = "Cari ...";
             this.textBox_Cari.Click += new System.EventHandler(this.textBox_Cari_Click);
             this.textBox_Cari.TextChanged += new System.EventHandler(this.textBox_Cari_TextCanged);
@@ -575,12 +580,13 @@ namespace KantjaStuck
             this.wrapperKasir.Controls.Add(this.kasir_cardKontainerMinuman);
             this.wrapperKasir.Controls.Add(this.kasir_cardKontainerMakanan);
             this.wrapperKasir.Controls.Add(this.kasir_cardHitungCheckOut);
-            this.wrapperKasir.Controls.Add(this.textBox37);
-            this.wrapperKasir.Controls.Add(this.textBox36);
+            this.wrapperKasir.Controls.Add(this.kasir_totalPesananMinuman);
+            this.wrapperKasir.Controls.Add(this.kasir_totalPesananMakanan);
             this.wrapperKasir.Controls.Add(this.kasir_cardPilihMenu);
             this.wrapperKasir.Controls.Add(this.label1);
             this.wrapperKasir.Controls.Add(this.label6);
-            this.wrapperKasir.Controls.Add(this.textBox6);
+            this.wrapperKasir.Controls.Add(this.kasir_cardTransaksiNotifikasi);
+            this.wrapperKasir.Controls.Add(this.kasir_cardNoTransaksi);
             this.wrapperKasir.Controls.Add(this.kasir_cardBtTambahkan);
             this.wrapperKasir.Controls.Add(this.label22);
             this.wrapperKasir.Controls.Add(this.label21);
@@ -592,29 +598,31 @@ namespace KantjaStuck
             // 
             // kasir_cardKontainerMinuman
             // 
-            this.kasir_cardKontainerMinuman.Controls.Add(this.flowLayoutPanel3);
+            this.kasir_cardKontainerMinuman.Controls.Add(this.kasir_wrapperPesananMinuman);
             this.kasir_cardKontainerMinuman.Controls.Add(this.textBox3);
-            this.kasir_cardKontainerMinuman.Controls.Add(this.textBox31);
+            this.kasir_cardKontainerMinuman.Controls.Add(this.kasir_sumTotalMinuman);
             this.kasir_cardKontainerMinuman.Controls.Add(this.textBox13);
             this.kasir_cardKontainerMinuman.Controls.Add(this.textBox15);
             this.kasir_cardKontainerMinuman.Controls.Add(this.textBox16);
-            this.kasir_cardKontainerMinuman.Location = new System.Drawing.Point(601, 247);
+            this.kasir_cardKontainerMinuman.Location = new System.Drawing.Point(594, 247);
             this.kasir_cardKontainerMinuman.Name = "kasir_cardKontainerMinuman";
-            this.kasir_cardKontainerMinuman.Size = new System.Drawing.Size(369, 150);
+            this.kasir_cardKontainerMinuman.Size = new System.Drawing.Size(376, 150);
             this.kasir_cardKontainerMinuman.TabIndex = 31;
             // 
-            // flowLayoutPanel3
+            // kasir_wrapperPesananMinuman
             // 
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 31);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(368, 90);
-            this.flowLayoutPanel3.TabIndex = 24;
+            this.kasir_wrapperPesananMinuman.AutoScroll = true;
+            this.kasir_wrapperPesananMinuman.Location = new System.Drawing.Point(0, 31);
+            this.kasir_wrapperPesananMinuman.Name = "kasir_wrapperPesananMinuman";
+            this.kasir_wrapperPesananMinuman.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.kasir_wrapperPesananMinuman.Size = new System.Drawing.Size(375, 90);
+            this.kasir_wrapperPesananMinuman.TabIndex = 24;
             // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox3.Location = new System.Drawing.Point(78, 6);
+            this.textBox3.Location = new System.Drawing.Point(70, 6);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(138, 16);
@@ -622,11 +630,23 @@ namespace KantjaStuck
             this.textBox3.Text = "Nama Minuman";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // kasir_sumTotalMinuman
+            // 
+            this.kasir_sumTotalMinuman.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_sumTotalMinuman.Font = new System.Drawing.Font("Poppins", 8F);
+            this.kasir_sumTotalMinuman.Location = new System.Drawing.Point(252, 127);
+            this.kasir_sumTotalMinuman.Name = "kasir_sumTotalMinuman";
+            this.kasir_sumTotalMinuman.ReadOnly = true;
+            this.kasir_sumTotalMinuman.Size = new System.Drawing.Size(74, 16);
+            this.kasir_sumTotalMinuman.TabIndex = 23;
+            this.kasir_sumTotalMinuman.Text = "0";
+            this.kasir_sumTotalMinuman.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // textBox13
             // 
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox13.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox13.Location = new System.Drawing.Point(262, 6);
+            this.textBox13.Location = new System.Drawing.Point(252, 6);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(74, 16);
@@ -638,7 +658,7 @@ namespace KantjaStuck
             // 
             this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox15.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox15.Location = new System.Drawing.Point(223, 6);
+            this.textBox15.Location = new System.Drawing.Point(214, 6);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
             this.textBox15.Size = new System.Drawing.Size(32, 16);
@@ -650,7 +670,7 @@ namespace KantjaStuck
             // 
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox16.Location = new System.Drawing.Point(10, 6);
+            this.textBox16.Location = new System.Drawing.Point(5, 6);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(59, 16);
@@ -660,29 +680,31 @@ namespace KantjaStuck
             // 
             // kasir_cardKontainerMakanan
             // 
-            this.kasir_cardKontainerMakanan.Controls.Add(this.flowLayoutPanel2);
+            this.kasir_cardKontainerMakanan.Controls.Add(this.kasir_wrapperPesananMakanan);
             this.kasir_cardKontainerMakanan.Controls.Add(this.textBox23);
-            this.kasir_cardKontainerMakanan.Controls.Add(this.textBox30);
+            this.kasir_cardKontainerMakanan.Controls.Add(this.kasir_sumTotalMakanan);
             this.kasir_cardKontainerMakanan.Controls.Add(this.textBox22);
             this.kasir_cardKontainerMakanan.Controls.Add(this.textBox20);
             this.kasir_cardKontainerMakanan.Controls.Add(this.textBox17);
-            this.kasir_cardKontainerMakanan.Location = new System.Drawing.Point(601, 65);
+            this.kasir_cardKontainerMakanan.Location = new System.Drawing.Point(594, 65);
             this.kasir_cardKontainerMakanan.Name = "kasir_cardKontainerMakanan";
-            this.kasir_cardKontainerMakanan.Size = new System.Drawing.Size(369, 150);
+            this.kasir_cardKontainerMakanan.Size = new System.Drawing.Size(376, 150);
             this.kasir_cardKontainerMakanan.TabIndex = 31;
             // 
-            // flowLayoutPanel2
+            // kasir_wrapperPesananMakanan
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 31);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(368, 90);
-            this.flowLayoutPanel2.TabIndex = 24;
+            this.kasir_wrapperPesananMakanan.AutoScroll = true;
+            this.kasir_wrapperPesananMakanan.Location = new System.Drawing.Point(0, 31);
+            this.kasir_wrapperPesananMakanan.Name = "kasir_wrapperPesananMakanan";
+            this.kasir_wrapperPesananMakanan.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.kasir_wrapperPesananMakanan.Size = new System.Drawing.Size(375, 90);
+            this.kasir_wrapperPesananMakanan.TabIndex = 24;
             // 
             // textBox23
             // 
             this.textBox23.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox23.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox23.Location = new System.Drawing.Point(78, 6);
+            this.textBox23.Location = new System.Drawing.Point(70, 6);
             this.textBox23.Name = "textBox23";
             this.textBox23.ReadOnly = true;
             this.textBox23.Size = new System.Drawing.Size(138, 16);
@@ -690,11 +712,23 @@ namespace KantjaStuck
             this.textBox23.Text = "Nama Makanan";
             this.textBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // kasir_sumTotalMakanan
+            // 
+            this.kasir_sumTotalMakanan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_sumTotalMakanan.Font = new System.Drawing.Font("Poppins", 8F);
+            this.kasir_sumTotalMakanan.Location = new System.Drawing.Point(252, 129);
+            this.kasir_sumTotalMakanan.Name = "kasir_sumTotalMakanan";
+            this.kasir_sumTotalMakanan.ReadOnly = true;
+            this.kasir_sumTotalMakanan.Size = new System.Drawing.Size(74, 16);
+            this.kasir_sumTotalMakanan.TabIndex = 23;
+            this.kasir_sumTotalMakanan.Text = "0";
+            this.kasir_sumTotalMakanan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // textBox22
             // 
             this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox22.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox22.Location = new System.Drawing.Point(262, 6);
+            this.textBox22.Location = new System.Drawing.Point(252, 6);
             this.textBox22.Name = "textBox22";
             this.textBox22.ReadOnly = true;
             this.textBox22.Size = new System.Drawing.Size(74, 16);
@@ -706,7 +740,7 @@ namespace KantjaStuck
             // 
             this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox20.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox20.Location = new System.Drawing.Point(223, 6);
+            this.textBox20.Location = new System.Drawing.Point(214, 6);
             this.textBox20.Name = "textBox20";
             this.textBox20.ReadOnly = true;
             this.textBox20.Size = new System.Drawing.Size(32, 16);
@@ -718,7 +752,7 @@ namespace KantjaStuck
             // 
             this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox17.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox17.Location = new System.Drawing.Point(10, 6);
+            this.textBox17.Location = new System.Drawing.Point(5, 6);
             this.textBox17.Name = "textBox17";
             this.textBox17.ReadOnly = true;
             this.textBox17.Size = new System.Drawing.Size(59, 16);
@@ -733,21 +767,21 @@ namespace KantjaStuck
             this.kasir_cardHitungCheckOut.Controls.Add(this.label15);
             this.kasir_cardHitungCheckOut.Controls.Add(this.label14);
             this.kasir_cardHitungCheckOut.Controls.Add(this.textBox21);
-            this.kasir_cardHitungCheckOut.Controls.Add(this.comboBox2);
-            this.kasir_cardHitungCheckOut.Controls.Add(this.textBox14);
-            this.kasir_cardHitungCheckOut.Controls.Add(this.textBox33);
-            this.kasir_cardHitungCheckOut.Controls.Add(this.textBox32);
-            this.kasir_cardHitungCheckOut.Controls.Add(this.textBox8);
-            this.kasir_cardHitungCheckOut.Controls.Add(this.textBox11);
+            this.kasir_cardHitungCheckOut.Controls.Add(this.kasir_cardCBPilihNominal);
+            this.kasir_cardHitungCheckOut.Controls.Add(this.kassir_cardKasirTransaksi);
+            this.kasir_cardHitungCheckOut.Controls.Add(this.kasir_cardTotalKembalian);
+            this.kasir_cardHitungCheckOut.Controls.Add(this.kasir_cardTunai);
+            this.kasir_cardHitungCheckOut.Controls.Add(this.kasir_cardTotalDiskon);
+            this.kasir_cardHitungCheckOut.Controls.Add(this.kasir_cardSubMinuman);
             this.kasir_cardHitungCheckOut.Controls.Add(this.textBox34);
-            this.kasir_cardHitungCheckOut.Controls.Add(this.textBox12);
+            this.kasir_cardHitungCheckOut.Controls.Add(this.kasir_cardTotalPesananans);
             this.kasir_cardHitungCheckOut.Controls.Add(this.kasir_card_BtCheckOut);
             this.kasir_cardHitungCheckOut.Controls.Add(this.kaisr_cardBtBatal);
             this.kasir_cardHitungCheckOut.Controls.Add(this.textBox9);
             this.kasir_cardHitungCheckOut.Controls.Add(this.textBox19);
-            this.kasir_cardHitungCheckOut.Controls.Add(this.textBox10);
+            this.kasir_cardHitungCheckOut.Controls.Add(this.kasir_cardSubMakanan);
             this.kasir_cardHitungCheckOut.Controls.Add(this.textBox18);
-            this.kasir_cardHitungCheckOut.Controls.Add(this.textBox7);
+            this.kasir_cardHitungCheckOut.Controls.Add(this.kasir_cardTanggalTransaksi);
             this.kasir_cardHitungCheckOut.Location = new System.Drawing.Point(16, 470);
             this.kasir_cardHitungCheckOut.Name = "kasir_cardHitungCheckOut";
             this.kasir_cardHitungCheckOut.Size = new System.Drawing.Size(941, 136);
@@ -756,22 +790,22 @@ namespace KantjaStuck
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.label24.Location = new System.Drawing.Point(421, 86);
             this.label24.Margin = new System.Windows.Forms.Padding(10);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(73, 23);
+            this.label24.Size = new System.Drawing.Size(66, 22);
             this.label24.TabIndex = 31;
             this.label24.Text = "Kembali :";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
             this.label23.Location = new System.Drawing.Point(439, 8);
             this.label23.Margin = new System.Windows.Forms.Padding(10);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(55, 23);
+            this.label23.Size = new System.Drawing.Size(50, 22);
             this.label23.TabIndex = 31;
             this.label23.Text = "Tunai :";
             // 
@@ -809,90 +843,102 @@ namespace KantjaStuck
             this.textBox21.Text = "Kasir";
             this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboBox2
+            // kasir_cardCBPilihNominal
             // 
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Poppins", 11F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(670, 8);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(96, 34);
-            this.comboBox2.TabIndex = 25;
+            this.kasir_cardCBPilihNominal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kasir_cardCBPilihNominal.Font = new System.Drawing.Font("Poppins", 11F);
+            this.kasir_cardCBPilihNominal.FormattingEnabled = true;
+            this.kasir_cardCBPilihNominal.Location = new System.Drawing.Point(670, 8);
+            this.kasir_cardCBPilihNominal.Name = "kasir_cardCBPilihNominal";
+            this.kasir_cardCBPilihNominal.Size = new System.Drawing.Size(96, 34);
+            this.kasir_cardCBPilihNominal.TabIndex = 25;
+            this.kasir_cardCBPilihNominal.SelectedIndexChanged += new System.EventHandler(this.kasir_cardCBPilihNominal_SelectedIndexChanged);
+            this.kasir_cardCBPilihNominal.TextChanged += new System.EventHandler(this.kasir_cardCBNominal_textChanged);
             // 
-            // textBox14
+            // kassir_cardKasirTransaksi
             // 
-            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox14.Font = new System.Drawing.Font("Poppins Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.textBox14.Location = new System.Drawing.Point(120, 34);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(76, 18);
-            this.textBox14.TabIndex = 23;
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kassir_cardKasirTransaksi.BackColor = System.Drawing.Color.White;
+            this.kassir_cardKasirTransaksi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kassir_cardKasirTransaksi.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kassir_cardKasirTransaksi.Location = new System.Drawing.Point(120, 34);
+            this.kassir_cardKasirTransaksi.Name = "kassir_cardKasirTransaksi";
+            this.kassir_cardKasirTransaksi.ReadOnly = true;
+            this.kassir_cardKasirTransaksi.Size = new System.Drawing.Size(76, 18);
+            this.kassir_cardKasirTransaksi.TabIndex = 23;
+            this.kassir_cardKasirTransaksi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox33
+            // kasir_cardTotalKembalian
             // 
-            this.textBox33.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox33.Font = new System.Drawing.Font("Poppins SemiBold", 17F, System.Drawing.FontStyle.Bold);
-            this.textBox33.Location = new System.Drawing.Point(511, 86);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(146, 34);
-            this.textBox33.TabIndex = 23;
-            this.textBox33.Text = "30.000";
-            this.textBox33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardTotalKembalian.BackColor = System.Drawing.Color.White;
+            this.kasir_cardTotalKembalian.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardTotalKembalian.Font = new System.Drawing.Font("Poppins SemiBold", 17F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardTotalKembalian.Location = new System.Drawing.Point(511, 86);
+            this.kasir_cardTotalKembalian.Name = "kasir_cardTotalKembalian";
+            this.kasir_cardTotalKembalian.ReadOnly = true;
+            this.kasir_cardTotalKembalian.Size = new System.Drawing.Size(146, 34);
+            this.kasir_cardTotalKembalian.TabIndex = 23;
+            this.kasir_cardTotalKembalian.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox32
+            // kasir_cardTunai
             // 
-            this.textBox32.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox32.Font = new System.Drawing.Font("Poppins SemiBold", 17F, System.Drawing.FontStyle.Bold);
-            this.textBox32.Location = new System.Drawing.Point(511, 8);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(146, 34);
-            this.textBox32.TabIndex = 23;
-            this.textBox32.Text = "100.000";
-            this.textBox32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardTunai.BackColor = System.Drawing.Color.White;
+            this.kasir_cardTunai.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardTunai.Font = new System.Drawing.Font("Poppins SemiBold", 17F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardTunai.Location = new System.Drawing.Point(511, 8);
+            this.kasir_cardTunai.Name = "kasir_cardTunai";
+            this.kasir_cardTunai.ReadOnly = true;
+            this.kasir_cardTunai.Size = new System.Drawing.Size(146, 34);
+            this.kasir_cardTunai.TabIndex = 23;
+            this.kasir_cardTunai.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox8
+            // kasir_cardTotalDiskon
             // 
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Font = new System.Drawing.Font("Poppins Medium", 20F, System.Drawing.FontStyle.Bold);
-            this.textBox8.Location = new System.Drawing.Point(310, 86);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(101, 40);
-            this.textBox8.TabIndex = 23;
-            this.textBox8.Text = "-0";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardTotalDiskon.BackColor = System.Drawing.Color.White;
+            this.kasir_cardTotalDiskon.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardTotalDiskon.Font = new System.Drawing.Font("Poppins Medium", 20F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardTotalDiskon.Location = new System.Drawing.Point(310, 86);
+            this.kasir_cardTotalDiskon.Name = "kasir_cardTotalDiskon";
+            this.kasir_cardTotalDiskon.ReadOnly = true;
+            this.kasir_cardTotalDiskon.Size = new System.Drawing.Size(101, 40);
+            this.kasir_cardTotalDiskon.TabIndex = 23;
+            this.kasir_cardTotalDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox11
+            // kasir_cardSubMinuman
             // 
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Font = new System.Drawing.Font("Poppins Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.textBox11.Location = new System.Drawing.Point(310, 34);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(101, 18);
-            this.textBox11.TabIndex = 23;
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardSubMinuman.BackColor = System.Drawing.Color.White;
+            this.kasir_cardSubMinuman.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardSubMinuman.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kasir_cardSubMinuman.Location = new System.Drawing.Point(310, 34);
+            this.kasir_cardSubMinuman.Name = "kasir_cardSubMinuman";
+            this.kasir_cardSubMinuman.ReadOnly = true;
+            this.kasir_cardSubMinuman.Size = new System.Drawing.Size(101, 18);
+            this.kasir_cardSubMinuman.TabIndex = 23;
+            this.kasir_cardSubMinuman.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox34
             // 
+            this.textBox34.BackColor = System.Drawing.Color.White;
             this.textBox34.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox34.Font = new System.Drawing.Font("Poppins Medium", 20F, System.Drawing.FontStyle.Bold);
             this.textBox34.Location = new System.Drawing.Point(13, 87);
             this.textBox34.Name = "textBox34";
+            this.textBox34.ReadOnly = true;
             this.textBox34.Size = new System.Drawing.Size(50, 40);
             this.textBox34.TabIndex = 23;
             this.textBox34.Text = "Rp.";
             this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox12
+            // kasir_cardTotalPesananans
             // 
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Font = new System.Drawing.Font("Poppins Medium", 20F, System.Drawing.FontStyle.Bold);
-            this.textBox12.Location = new System.Drawing.Point(69, 86);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(235, 40);
-            this.textBox12.TabIndex = 23;
-            this.textBox12.Text = "70.000";
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardTotalPesananans.BackColor = System.Drawing.Color.White;
+            this.kasir_cardTotalPesananans.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardTotalPesananans.Font = new System.Drawing.Font("Poppins Medium", 20F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardTotalPesananans.Location = new System.Drawing.Point(69, 86);
+            this.kasir_cardTotalPesananans.Name = "kasir_cardTotalPesananans";
+            this.kasir_cardTotalPesananans.ReadOnly = true;
+            this.kasir_cardTotalPesananans.Size = new System.Drawing.Size(235, 40);
+            this.kasir_cardTotalPesananans.TabIndex = 23;
+            this.kasir_cardTotalPesananans.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // kasir_card_BtCheckOut
             // 
@@ -907,6 +953,7 @@ namespace KantjaStuck
             this.kasir_card_BtCheckOut.TabIndex = 26;
             this.kasir_card_BtCheckOut.Text = "Check Out";
             this.kasir_card_BtCheckOut.UseVisualStyleBackColor = false;
+            this.kasir_card_BtCheckOut.Click += new System.EventHandler(this.kasir_card_BtCheckOut_Click);
             // 
             // kaisr_cardBtBatal
             // 
@@ -921,6 +968,7 @@ namespace KantjaStuck
             this.kaisr_cardBtBatal.TabIndex = 26;
             this.kaisr_cardBtBatal.Text = "Batal";
             this.kaisr_cardBtBatal.UseVisualStyleBackColor = false;
+            this.kaisr_cardBtBatal.Click += new System.EventHandler(this.kaisr_cardBtBatal_Click);
             // 
             // textBox9
             // 
@@ -946,15 +994,17 @@ namespace KantjaStuck
             this.textBox19.Text = "sub. Makan";
             this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox10
+            // kasir_cardSubMakanan
             // 
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Font = new System.Drawing.Font("Poppins Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.textBox10.Location = new System.Drawing.Point(203, 34);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(101, 18);
-            this.textBox10.TabIndex = 23;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardSubMakanan.BackColor = System.Drawing.Color.White;
+            this.kasir_cardSubMakanan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardSubMakanan.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kasir_cardSubMakanan.Location = new System.Drawing.Point(203, 34);
+            this.kasir_cardSubMakanan.Name = "kasir_cardSubMakanan";
+            this.kasir_cardSubMakanan.ReadOnly = true;
+            this.kasir_cardSubMakanan.Size = new System.Drawing.Size(101, 18);
+            this.kasir_cardSubMakanan.TabIndex = 23;
+            this.kasir_cardSubMakanan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox18
             // 
@@ -968,155 +1018,198 @@ namespace KantjaStuck
             this.textBox18.Text = "Tanggal";
             this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox7
+            // kasir_cardTanggalTransaksi
             // 
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Poppins Medium", 9F, System.Drawing.FontStyle.Bold);
-            this.textBox7.Location = new System.Drawing.Point(13, 34);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(101, 18);
-            this.textBox7.TabIndex = 23;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardTanggalTransaksi.BackColor = System.Drawing.Color.White;
+            this.kasir_cardTanggalTransaksi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardTanggalTransaksi.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kasir_cardTanggalTransaksi.Location = new System.Drawing.Point(13, 34);
+            this.kasir_cardTanggalTransaksi.Name = "kasir_cardTanggalTransaksi";
+            this.kasir_cardTanggalTransaksi.ReadOnly = true;
+            this.kasir_cardTanggalTransaksi.Size = new System.Drawing.Size(101, 18);
+            this.kasir_cardTanggalTransaksi.TabIndex = 23;
+            this.kasir_cardTanggalTransaksi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // kasir_totalPesananMinuman
+            // 
+            this.kasir_totalPesananMinuman.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_totalPesananMinuman.Font = new System.Drawing.Font("Poppins", 8F);
+            this.kasir_totalPesananMinuman.Location = new System.Drawing.Point(953, 228);
+            this.kasir_totalPesananMinuman.Name = "kasir_totalPesananMinuman";
+            this.kasir_totalPesananMinuman.ReadOnly = true;
+            this.kasir_totalPesananMinuman.Size = new System.Drawing.Size(16, 16);
+            this.kasir_totalPesananMinuman.TabIndex = 23;
+            this.kasir_totalPesananMinuman.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // kasir_totalPesananMakanan
+            // 
+            this.kasir_totalPesananMakanan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_totalPesananMakanan.Font = new System.Drawing.Font("Poppins", 8F);
+            this.kasir_totalPesananMakanan.Location = new System.Drawing.Point(954, 46);
+            this.kasir_totalPesananMakanan.Name = "kasir_totalPesananMakanan";
+            this.kasir_totalPesananMakanan.ReadOnly = true;
+            this.kasir_totalPesananMakanan.Size = new System.Drawing.Size(16, 16);
+            this.kasir_totalPesananMakanan.TabIndex = 23;
+            this.kasir_totalPesananMakanan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // kasir_cardPilihMenu
             // 
             this.kasir_cardPilihMenu.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.kasir_cardPilihMenu.Controls.Add(this.radioButton2);
-            this.kasir_cardPilihMenu.Controls.Add(this.radioButton1);
-            this.kasir_cardPilihMenu.Controls.Add(this.pictureBox1);
-            this.kasir_cardPilihMenu.Controls.Add(this.comboBox1);
-            this.kasir_cardPilihMenu.Controls.Add(this.textBox1);
-            this.kasir_cardPilihMenu.Controls.Add(this.textBox4);
-            this.kasir_cardPilihMenu.Controls.Add(this.textBox35);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardRBMakanan);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardRBMinuman);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardPBMenu);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardIdPelanggan);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardIdMenu);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardQtyMenu);
             this.kasir_cardPilihMenu.Controls.Add(this.label25);
-            this.kasir_cardPilihMenu.Controls.Add(this.textBox5);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardNamaMenu);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardHargaMenu);
             this.kasir_cardPilihMenu.Controls.Add(this.label20);
+            this.kasir_cardPilihMenu.Controls.Add(this.label7);
             this.kasir_cardPilihMenu.Controls.Add(this.label19);
             this.kasir_cardPilihMenu.Controls.Add(this.label8);
-            this.kasir_cardPilihMenu.Controls.Add(this.textBox2);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardIdKasir);
             this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardBtPilih);
-            this.kasir_cardPilihMenu.Controls.Add(this.label7);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_cardNamaKasir);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_chardCBMenuMinuman);
+            this.kasir_cardPilihMenu.Controls.Add(this.kasir_chardCBMenuMakanan);
             this.kasir_cardPilihMenu.Location = new System.Drawing.Point(16, 43);
             this.kasir_cardPilihMenu.Name = "kasir_cardPilihMenu";
-            this.kasir_cardPilihMenu.Size = new System.Drawing.Size(573, 354);
+            this.kasir_cardPilihMenu.Size = new System.Drawing.Size(572, 354);
             this.kasir_cardPilihMenu.TabIndex = 29;
             // 
-            // radioButton2
+            // kasir_cardRBMakanan
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.radioButton2.Location = new System.Drawing.Point(242, 117);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(87, 26);
-            this.radioButton2.TabIndex = 28;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Minuman";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.kasir_cardRBMakanan.AutoSize = true;
+            this.kasir_cardRBMakanan.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardRBMakanan.Location = new System.Drawing.Point(474, 98);
+            this.kasir_cardRBMakanan.Name = "kasir_cardRBMakanan";
+            this.kasir_cardRBMakanan.Size = new System.Drawing.Size(86, 26);
+            this.kasir_cardRBMakanan.TabIndex = 28;
+            this.kasir_cardRBMakanan.TabStop = true;
+            this.kasir_cardRBMakanan.Text = "Makanan";
+            this.kasir_cardRBMakanan.UseVisualStyleBackColor = true;
+            this.kasir_cardRBMakanan.CheckedChanged += new System.EventHandler(this.kasir_cardRBMakanan_CheckedChanged);
             // 
-            // radioButton1
+            // kasir_cardRBMinuman
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.radioButton1.Location = new System.Drawing.Point(468, 117);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(86, 26);
-            this.radioButton1.TabIndex = 28;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Makanan";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.kasir_cardRBMinuman.AutoSize = true;
+            this.kasir_cardRBMinuman.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardRBMinuman.Location = new System.Drawing.Point(235, 101);
+            this.kasir_cardRBMinuman.Name = "kasir_cardRBMinuman";
+            this.kasir_cardRBMinuman.Size = new System.Drawing.Size(87, 26);
+            this.kasir_cardRBMinuman.TabIndex = 28;
+            this.kasir_cardRBMinuman.TabStop = true;
+            this.kasir_cardRBMinuman.Text = "Minuman";
+            this.kasir_cardRBMinuman.UseVisualStyleBackColor = true;
+            this.kasir_cardRBMinuman.CheckedChanged += new System.EventHandler(this.kasir_cardRBMinuman_CheckedChanged);
             // 
-            // pictureBox1
+            // kasir_cardPBMenu
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 55);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(210, 280);
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
+            this.kasir_cardPBMenu.BackColor = System.Drawing.Color.White;
+            this.kasir_cardPBMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.kasir_cardPBMenu.Location = new System.Drawing.Point(15, 55);
+            this.kasir_cardPBMenu.Name = "kasir_cardPBMenu";
+            this.kasir_cardPBMenu.Size = new System.Drawing.Size(210, 280);
+            this.kasir_cardPBMenu.TabIndex = 27;
+            this.kasir_cardPBMenu.TabStop = false;
             // 
-            // comboBox1
+            // kasir_cardIdPelanggan
             // 
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Poppins", 8F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(304, 172);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 27);
-            this.comboBox1.TabIndex = 25;
+            this.kasir_cardIdPelanggan.BackColor = System.Drawing.Color.White;
+            this.kasir_cardIdPelanggan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardIdPelanggan.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardIdPelanggan.Location = new System.Drawing.Point(458, 19);
+            this.kasir_cardIdPelanggan.Name = "kasir_cardIdPelanggan";
+            this.kasir_cardIdPelanggan.ReadOnly = true;
+            this.kasir_cardIdPelanggan.Size = new System.Drawing.Size(102, 20);
+            this.kasir_cardIdPelanggan.TabIndex = 24;
+            this.kasir_cardIdPelanggan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox1
+            // kasir_cardIdMenu
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
-            this.textBox1.Location = new System.Drawing.Point(468, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(86, 20);
-            this.textBox1.TabIndex = 24;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardIdMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardIdMenu.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardIdMenu.Location = new System.Drawing.Point(297, 139);
+            this.kasir_cardIdMenu.Name = "kasir_cardIdMenu";
+            this.kasir_cardIdMenu.ReadOnly = true;
+            this.kasir_cardIdMenu.Size = new System.Drawing.Size(86, 18);
+            this.kasir_cardIdMenu.TabIndex = 23;
+            this.kasir_cardIdMenu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox4
+            // kasir_cardQtyMenu
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Poppins SemiBold", 11F, System.Drawing.FontStyle.Bold);
-            this.textBox4.Location = new System.Drawing.Point(468, 177);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(86, 22);
-            this.textBox4.TabIndex = 23;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox35
-            // 
-            this.textBox35.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox35.Font = new System.Drawing.Font("Poppins Medium", 11F, System.Drawing.FontStyle.Bold);
-            this.textBox35.Location = new System.Drawing.Point(304, 257);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(49, 22);
-            this.textBox35.TabIndex = 23;
-            this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardQtyMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardQtyMenu.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardQtyMenu.Location = new System.Drawing.Point(297, 258);
+            this.kasir_cardQtyMenu.Name = "kasir_cardQtyMenu";
+            this.kasir_cardQtyMenu.Size = new System.Drawing.Size(49, 18);
+            this.kasir_cardQtyMenu.TabIndex = 23;
+            this.kasir_cardQtyMenu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(242, 256);
+            this.label25.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(235, 256);
             this.label25.Margin = new System.Windows.Forms.Padding(10);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(37, 22);
+            this.label25.Size = new System.Drawing.Size(36, 22);
             this.label25.TabIndex = 0;
             this.label25.Text = "Qty :";
             // 
-            // textBox5
+            // kasir_cardNamaMenu
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Poppins Medium", 11F, System.Drawing.FontStyle.Bold);
-            this.textBox5.Location = new System.Drawing.Point(304, 217);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(155, 22);
-            this.textBox5.TabIndex = 23;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardNamaMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardNamaMenu.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardNamaMenu.Location = new System.Drawing.Point(296, 182);
+            this.kasir_cardNamaMenu.Name = "kasir_cardNamaMenu";
+            this.kasir_cardNamaMenu.ReadOnly = true;
+            this.kasir_cardNamaMenu.Size = new System.Drawing.Size(156, 18);
+            this.kasir_cardNamaMenu.TabIndex = 23;
+            this.kasir_cardNamaMenu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // kasir_cardHargaMenu
+            // 
+            this.kasir_cardHargaMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardHargaMenu.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardHargaMenu.Location = new System.Drawing.Point(297, 219);
+            this.kasir_cardHargaMenu.Name = "kasir_cardHargaMenu";
+            this.kasir_cardHargaMenu.ReadOnly = true;
+            this.kasir_cardHargaMenu.Size = new System.Drawing.Size(116, 18);
+            this.kasir_cardHargaMenu.TabIndex = 23;
+            this.kasir_cardHargaMenu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(242, 217);
+            this.label20.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(235, 217);
             this.label20.Margin = new System.Windows.Forms.Padding(10);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 22);
+            this.label20.Size = new System.Drawing.Size(52, 22);
             this.label20.TabIndex = 0;
             this.label20.Text = "Harga :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(235, 137);
+            this.label7.Margin = new System.Windows.Forms.Padding(10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 22);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Id :";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(242, 174);
+            this.label19.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(235, 180);
             this.label19.Margin = new System.Windows.Forms.Padding(10);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(54, 22);
+            this.label19.Size = new System.Drawing.Size(52, 22);
             this.label19.TabIndex = 0;
             this.label19.Text = "Nama :";
             // 
@@ -1124,24 +1217,24 @@ namespace KantjaStuck
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(464, 55);
+            this.label8.Location = new System.Drawing.Point(362, 18);
             this.label8.Margin = new System.Windows.Forms.Padding(10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 22);
             this.label8.TabIndex = 0;
             this.label8.Text = "ID Pelanggan";
             // 
-            // textBox2
+            // kasir_cardIdKasir
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
-            this.textBox2.Location = new System.Drawing.Point(161, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(64, 20);
-            this.textBox2.TabIndex = 24;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardIdKasir.BackColor = System.Drawing.Color.White;
+            this.kasir_cardIdKasir.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardIdKasir.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardIdKasir.Location = new System.Drawing.Point(161, 19);
+            this.kasir_cardIdKasir.Name = "kasir_cardIdKasir";
+            this.kasir_cardIdKasir.ReadOnly = true;
+            this.kasir_cardIdKasir.Size = new System.Drawing.Size(64, 20);
+            this.kasir_cardIdKasir.TabIndex = 24;
+            this.kasir_cardIdKasir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // kasir_cardBtPilih
             // 
@@ -1150,23 +1243,48 @@ namespace KantjaStuck
             this.kasir_cardBtPilih.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.kasir_cardBtPilih.Font = new System.Drawing.Font("Poppins Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kasir_cardBtPilih.ForeColor = System.Drawing.Color.White;
-            this.kasir_cardBtPilih.Location = new System.Drawing.Point(242, 304);
+            this.kasir_cardBtPilih.Location = new System.Drawing.Point(235, 304);
             this.kasir_cardBtPilih.Name = "kasir_cardBtPilih";
-            this.kasir_cardBtPilih.Size = new System.Drawing.Size(312, 30);
+            this.kasir_cardBtPilih.Size = new System.Drawing.Size(325, 30);
             this.kasir_cardBtPilih.TabIndex = 26;
             this.kasir_cardBtPilih.Text = "Pilih";
             this.kasir_cardBtPilih.UseVisualStyleBackColor = false;
+            this.kasir_cardBtPilih.Click += new System.EventHandler(this.kasir_cardBtPilih_Click);
             // 
-            // label7
+            // kasir_cardNamaKasir
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(15, 18);
-            this.label7.Margin = new System.Windows.Forms.Padding(10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 22);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Nama Kasir";
+            this.kasir_cardNamaKasir.AutoSize = true;
+            this.kasir_cardNamaKasir.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardNamaKasir.Location = new System.Drawing.Point(15, 18);
+            this.kasir_cardNamaKasir.Margin = new System.Windows.Forms.Padding(10);
+            this.kasir_cardNamaKasir.Name = "kasir_cardNamaKasir";
+            this.kasir_cardNamaKasir.Size = new System.Drawing.Size(82, 22);
+            this.kasir_cardNamaKasir.TabIndex = 0;
+            this.kasir_cardNamaKasir.Text = "Nama Kasir";
+            // 
+            // kasir_chardCBMenuMinuman
+            // 
+            this.kasir_chardCBMenuMinuman.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.kasir_chardCBMenuMinuman.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kasir_chardCBMenuMinuman.Font = new System.Drawing.Font("Poppins", 8F);
+            this.kasir_chardCBMenuMinuman.FormattingEnabled = true;
+            this.kasir_chardCBMenuMinuman.Location = new System.Drawing.Point(460, 178);
+            this.kasir_chardCBMenuMinuman.Name = "kasir_chardCBMenuMinuman";
+            this.kasir_chardCBMenuMinuman.Size = new System.Drawing.Size(100, 27);
+            this.kasir_chardCBMenuMinuman.TabIndex = 29;
+            this.kasir_chardCBMenuMinuman.SelectedIndexChanged += new System.EventHandler(this.kasir_chardCBMenuMinuman_SelectedIndexChanged);
+            // 
+            // kasir_chardCBMenuMakanan
+            // 
+            this.kasir_chardCBMenuMakanan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.kasir_chardCBMenuMakanan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kasir_chardCBMenuMakanan.Font = new System.Drawing.Font("Poppins", 8F);
+            this.kasir_chardCBMenuMakanan.FormattingEnabled = true;
+            this.kasir_chardCBMenuMakanan.Location = new System.Drawing.Point(460, 178);
+            this.kasir_chardCBMenuMakanan.Name = "kasir_chardCBMenuMakanan";
+            this.kasir_chardCBMenuMakanan.Size = new System.Drawing.Size(100, 27);
+            this.kasir_chardCBMenuMakanan.TabIndex = 29;
+            this.kasir_chardCBMenuMakanan.SelectedIndexChanged += new System.EventHandler(this.kasir_chardCBMenuMakanan_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -1190,15 +1308,16 @@ namespace KantjaStuck
             this.label6.TabIndex = 0;
             this.label6.Text = "No. Trans :";
             // 
-            // textBox6
+            // kasir_cardNoTransaksi
             // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Poppins Medium", 10F, System.Drawing.FontStyle.Bold);
-            this.textBox6.Location = new System.Drawing.Point(95, 445);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(76, 20);
-            this.textBox6.TabIndex = 23;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardNoTransaksi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardNoTransaksi.Font = new System.Drawing.Font("Poppins Medium", 10F, System.Drawing.FontStyle.Bold);
+            this.kasir_cardNoTransaksi.Location = new System.Drawing.Point(95, 445);
+            this.kasir_cardNoTransaksi.Name = "kasir_cardNoTransaksi";
+            this.kasir_cardNoTransaksi.Size = new System.Drawing.Size(90, 20);
+            this.kasir_cardNoTransaksi.TabIndex = 23;
+            this.kasir_cardNoTransaksi.Text = "-";
+            this.kasir_cardNoTransaksi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // kasir_cardBtTambahkan
             // 
@@ -1213,6 +1332,7 @@ namespace KantjaStuck
             this.kasir_cardBtTambahkan.TabIndex = 26;
             this.kasir_cardBtTambahkan.Text = "Tambahkan";
             this.kasir_cardBtTambahkan.UseVisualStyleBackColor = false;
+            this.kasir_cardBtTambahkan.Click += new System.EventHandler(this.kasir_cardBtTambahkan_Click);
             // 
             // label22
             // 
@@ -1326,6 +1446,7 @@ namespace KantjaStuck
             // 
             this.admin_gvDetailMinuman.AllowUserToAddRows = false;
             this.admin_gvDetailMinuman.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.admin_gvDetailMinuman.BackgroundColor = System.Drawing.Color.White;
             this.admin_gvDetailMinuman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.admin_gvDetailMinuman.Location = new System.Drawing.Point(16, 176);
             this.admin_gvDetailMinuman.Name = "admin_gvDetailMinuman";
@@ -1336,6 +1457,7 @@ namespace KantjaStuck
             // 
             this.admin_gvDetailMakanan.AllowUserToAddRows = false;
             this.admin_gvDetailMakanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.admin_gvDetailMakanan.BackgroundColor = System.Drawing.Color.White;
             this.admin_gvDetailMakanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.admin_gvDetailMakanan.Location = new System.Drawing.Point(16, 25);
             this.admin_gvDetailMakanan.Name = "admin_gvDetailMakanan";
@@ -1356,6 +1478,7 @@ namespace KantjaStuck
             // 
             this.admin_gvTabel.AllowUserToAddRows = false;
             this.admin_gvTabel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.admin_gvTabel.BackgroundColor = System.Drawing.Color.White;
             this.admin_gvTabel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.admin_gvTabel.Location = new System.Drawing.Point(14, 35);
             this.admin_gvTabel.Name = "admin_gvTabel";
@@ -1366,6 +1489,7 @@ namespace KantjaStuck
             // admin_cardDetail
             // 
             this.admin_cardDetail.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.admin_cardDetail.Controls.Add(this.label28);
             this.admin_cardDetail.Controls.Add(this.panel5);
             this.admin_cardDetail.Controls.Add(this.admin_cardBtHapus);
             this.admin_cardDetail.Controls.Add(this.admin_cardBtUbahFoto);
@@ -1374,7 +1498,7 @@ namespace KantjaStuck
             this.admin_cardDetail.Controls.Add(this.admin_cardLbHarga_orTelp);
             this.admin_cardDetail.Controls.Add(this.admin_cardLbNama);
             this.admin_cardDetail.Controls.Add(this.admin_cardLabelJenisTabel);
-            this.admin_cardDetail.Controls.Add(this.pictureBox2);
+            this.admin_cardDetail.Controls.Add(this.admin_cardPB);
             this.admin_cardDetail.Controls.Add(this.admin_cardTxNama);
             this.admin_cardDetail.Controls.Add(this.admin_cardTxStatusAdmin);
             this.admin_cardDetail.Controls.Add(this.admin_cardTxHarga_orTelp);
@@ -1494,15 +1618,15 @@ namespace KantjaStuck
             this.admin_cardLabelJenisTabel.TabIndex = 28;
             this.admin_cardLabelJenisTabel.Text = "Makanan";
             // 
-            // pictureBox2
+            // admin_cardPB
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(11, 20);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(125, 166);
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
+            this.admin_cardPB.BackColor = System.Drawing.Color.White;
+            this.admin_cardPB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.admin_cardPB.Location = new System.Drawing.Point(11, 20);
+            this.admin_cardPB.Name = "admin_cardPB";
+            this.admin_cardPB.Size = new System.Drawing.Size(125, 166);
+            this.admin_cardPB.TabIndex = 27;
+            this.admin_cardPB.TabStop = false;
             // 
             // admin_cardTxNama
             // 
@@ -2099,51 +2223,29 @@ namespace KantjaStuck
             this.label4.TabIndex = 0;
             this.label4.Text = "Laporan";
             // 
-            // textBox30
+            // kasir_cardTransaksiNotifikasi
             // 
-            this.textBox30.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox30.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox30.Location = new System.Drawing.Point(262, 129);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.ReadOnly = true;
-            this.textBox30.Size = new System.Drawing.Size(74, 16);
-            this.textBox30.TabIndex = 23;
-            this.textBox30.Text = "Total";
-            this.textBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kasir_cardTransaksiNotifikasi.BackColor = System.Drawing.Color.White;
+            this.kasir_cardTransaksiNotifikasi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardTransaksiNotifikasi.Font = new System.Drawing.Font("Poppins", 6.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kasir_cardTransaksiNotifikasi.Location = new System.Drawing.Point(527, 445);
+            this.kasir_cardTransaksiNotifikasi.Name = "kasir_cardTransaksiNotifikasi";
+            this.kasir_cardTransaksiNotifikasi.ReadOnly = true;
+            this.kasir_cardTransaksiNotifikasi.Size = new System.Drawing.Size(255, 14);
+            this.kasir_cardTransaksiNotifikasi.TabIndex = 23;
+            this.kasir_cardTransaksiNotifikasi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox31
+            // label28
             // 
-            this.textBox31.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox31.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox31.Location = new System.Drawing.Point(262, 127);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.ReadOnly = true;
-            this.textBox31.Size = new System.Drawing.Size(74, 16);
-            this.textBox31.TabIndex = 23;
-            this.textBox31.Text = "Total";
-            this.textBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox36
-            // 
-            this.textBox36.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox36.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox36.Location = new System.Drawing.Point(954, 46);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.ReadOnly = true;
-            this.textBox36.Size = new System.Drawing.Size(16, 16);
-            this.textBox36.TabIndex = 23;
-            this.textBox36.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox37
-            // 
-            this.textBox37.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox37.Font = new System.Drawing.Font("Poppins", 8F);
-            this.textBox37.Location = new System.Drawing.Point(953, 228);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.ReadOnly = true;
-            this.textBox37.Size = new System.Drawing.Size(16, 16);
-            this.textBox37.TabIndex = 23;
-            this.textBox37.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label28.Font = new System.Drawing.Font("Poppins", 6F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label28.Location = new System.Drawing.Point(8, 3);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(36, 14);
+            this.label28.TabIndex = 33;
+            this.label28.Text = "label28";
             // 
             // Home
             // 
@@ -2154,12 +2256,12 @@ namespace KantjaStuck
             this.Controls.Add(this.WrapperMenuNavigation);
             this.Controls.Add(this.wrapperHeader);
             this.Controls.Add(this.wrapperBarPencarian);
+            this.Controls.Add(this.wrapperAdmin);
+            this.Controls.Add(this.wrapperKasir);
             this.Controls.Add(this.wrapperDashBoard);
             this.Controls.Add(this.wrapperLaporan);
             this.Controls.Add(this.wrapperProfile);
             this.Controls.Add(this.wrapperDatabase);
-            this.Controls.Add(this.wrapperAdmin);
-            this.Controls.Add(this.wrapperKasir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Home";
             this.Opacity = 0D;
@@ -2185,7 +2287,7 @@ namespace KantjaStuck
             this.kasir_cardHitungCheckOut.PerformLayout();
             this.kasir_cardPilihMenu.ResumeLayout(false);
             this.kasir_cardPilihMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kasir_cardPBMenu)).EndInit();
             this.wrapperAdmin.ResumeLayout(false);
             this.wrapperAdmin.PerformLayout();
             this.admin_cardCB.ResumeLayout(false);
@@ -2200,7 +2302,7 @@ namespace KantjaStuck
             this.admin_cardDetail.ResumeLayout(false);
             this.admin_cardDetail.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.admin_cardPB)).EndInit();
             this.admin_cardAfterLogin.ResumeLayout(false);
             this.admin_cardAfterLogin.PerformLayout();
             this.admin_cardLogin.ResumeLayout(false);
@@ -2278,15 +2380,11 @@ namespace KantjaStuck
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button profile_btSimpanProfile;
         private System.Windows.Forms.Button profile_btUbah;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.PictureBox kasir_cardPBMenu;
+        private System.Windows.Forms.TextBox kasir_cardHargaMenu;
+        private System.Windows.Forms.TextBox kasir_cardIdKasir;
         private System.Windows.Forms.Button kasir_cardBtPilih;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label kasir_cardNamaKasir;
         private System.Windows.Forms.Panel kasir_cardPilihMenu;
         private System.Windows.Forms.Label profile_lbJenisProfile;
         private System.Windows.Forms.Panel admin_cardDetail;
@@ -2299,7 +2397,7 @@ namespace KantjaStuck
         private System.Windows.Forms.Label admin_cardLbHarga_orTelp;
         private System.Windows.Forms.Label admin_cardLbNama;
         private System.Windows.Forms.Label admin_cardLabelJenisTabel;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox admin_cardPB;
         private System.Windows.Forms.TextBox admin_cardTxNama;
         private System.Windows.Forms.TextBox admin_cardTxStatusAdmin;
         private System.Windows.Forms.TextBox admin_cardTxHarga_orTelp;
@@ -2332,30 +2430,30 @@ namespace KantjaStuck
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox kassir_cardKasirTransaksi;
+        private System.Windows.Forms.TextBox kasir_cardTotalDiskon;
+        private System.Windows.Forms.TextBox kasir_cardSubMinuman;
+        private System.Windows.Forms.TextBox kasir_cardTotalPesananans;
         private System.Windows.Forms.Button kasir_card_BtCheckOut;
         private System.Windows.Forms.Button kaisr_cardBtBatal;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox kasir_cardSubMakanan;
         private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox kasir_cardTanggalTransaksi;
+        private System.Windows.Forms.TextBox kasir_cardIdPelanggan;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox kasir_cardNoTransaksi;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox33;
-        private System.Windows.Forms.TextBox textBox32;
+        private System.Windows.Forms.ComboBox kasir_cardCBPilihNominal;
+        private System.Windows.Forms.TextBox kasir_cardTotalKembalian;
+        private System.Windows.Forms.TextBox kasir_cardTunai;
         private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.TextBox textBox35;
+        private System.Windows.Forms.TextBox kasir_cardQtyMenu;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.Button kasir_cardBtTambahkan;
@@ -2368,12 +2466,12 @@ namespace KantjaStuck
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel kasir_cardKontainerMinuman;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel kasir_wrapperPesananMinuman;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel kasir_wrapperPesananMakanan;
         private System.Windows.Forms.TextBox textBox28;
         private System.Windows.Forms.TextBox textBox27;
         private System.Windows.Forms.TextBox textBox26;
@@ -2383,9 +2481,18 @@ namespace KantjaStuck
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox textBox29;
         private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox37;
-        private System.Windows.Forms.TextBox textBox36;
+        private System.Windows.Forms.TextBox kasir_sumTotalMinuman;
+        private System.Windows.Forms.TextBox kasir_sumTotalMakanan;
+        private System.Windows.Forms.TextBox kasir_totalPesananMinuman;
+        private System.Windows.Forms.TextBox kasir_totalPesananMakanan;
+        private System.Windows.Forms.ComboBox kasir_chardCBMenuMakanan;
+        private System.Windows.Forms.RadioButton kasir_cardRBMakanan;
+        private System.Windows.Forms.RadioButton kasir_cardRBMinuman;
+        private System.Windows.Forms.TextBox kasir_cardIdMenu;
+        private System.Windows.Forms.TextBox kasir_cardNamaMenu;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox kasir_chardCBMenuMinuman;
+        private System.Windows.Forms.TextBox kasir_cardTransaksiNotifikasi;
+        private System.Windows.Forms.Label label28;
     }
 }
