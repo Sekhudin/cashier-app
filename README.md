@@ -52,3 +52,20 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
     1. menentukan design tampilan card admin.
     2. menentukan logika update profile.
     3. Membantu anggota lain saat implementasi ide.
+# ================================== COMMIT Kedua (Selasa, 28 Desember 2021) ==================================
+# Progress 60%, Yang ditambahkan:
+- Melengkapi fungsi menu admin.
+- Implementasi menu menu transaksi menggunakan textbox dinamis sebagai opsi list pesanan. Menu kasir selesai 90%.
+- (terdapat bug saat generate noTransaksi, Cek pula saat generate idKasir selanjutnya harus clear. JANGAN LUPA)
+- Menyempurnakan user guide pada form register dan login.
+
+# kontribusi tiap anggota:
+- Sekhudin_19SA1061:
+    1. Melengkapi kode pemrograman pada menu admin, dan memperbaiki bug yang yang terjadi.
+    2. Implementasi menu transaksi, menggunakan textbox dinamis sebagai penampil list pesanan.
+    3. Memperbaiki bug di form profile.
+    4. Menambahkan fungsi update dan lainya di form admin.
+ - catatan:
+    1. Problrm solving saat generate noTransaksi,
+    2. Pastikan ulang fungsi2 pda menu admin,
+    3. rapihkan method yang sudah ada.
