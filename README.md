@@ -32,26 +32,6 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
     5. Menentukan flowcahart aplikasi secara umum.
     6. Implementasi design dan implementasi flowchar menu profile.
     7. Implementasi ide design aplikasi, membantu anggota lain saat koding implementasi.
-- Wulandari:
-    1. Menentukan tabel database
-    2. Menentukan korelasi database
-    3. menentukan flowchart saat login
-    4. menentukan logika ketika update kasir
-- Akbar fitrian:
-    1. Menentukan tabel database
-    2. Menentukan korelasi tiap tabel database.
-    3. Membuat Method pemrograman dasar.
-    4. Menentukan design tampilan login.
-    5. Menentukan design tampilan Admin dan implementasi, membantu anggota lain.
-- Nandika:
-    1. menentukan design tampilan card profile.
-    2. menentukan logika update profile.
-    3. Membantu anggota lain saat implementasi ide.
-    4. Membantu menentukan logika dari tiap2 menu
-- Azis:
-    1. menentukan design tampilan card admin.
-    2. menentukan logika update profile.
-    3. Membantu anggota lain saat implementasi ide.
 # ================================== COMMIT Kedua (Selasa, 28 Desember 2021) ==================================
 # Progress 60%, Yang ditambahkan:
 - Melengkapi fungsi menu admin.
