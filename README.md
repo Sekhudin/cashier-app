@@ -10,7 +10,7 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
 7. Terdapat 6 Menu navigasi: 1.Menu dashboard, 2.menu kasir, 3.menu admin, 4.menu database, 5.menu profile, 6.menu laporan.
 
 # Anggota Team:
-1. Sekhudin (Saya) - Owner
+1. Sekhudin
 2. Wulandari
 3. Akbar Fitrian
 4. Nandika
