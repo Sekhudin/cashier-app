@@ -21,17 +21,33 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
 # Progress 30%, Yang ditambahkan:
 - Database disertai korelasi dari setiap tabel.
 - Main Design dari aplikasi sudah terbentuk.
+- form login dan register
 - Tampilan Menu sudah dibuat. 3 menu sudah terbentuk dari total 6 menu.
 
 # kontribusi tiap anggota
 - Sekhudin :
-    1. Menentukan tiap tabel dari database.
-    2. Implementasi database.
-    3. Membuat prosedur database (Login kasir, login admin, update kasir kasir).
-    4. Membuat Method pemrograman dasar.
-    5. Menentukan flowcahart aplikasi secara umum.
-    6. Implementasi design dan implementasi flowchar menu profile.
-    7. Implementasi ide design aplikasi, membantu anggota lain saat koding implementasi.
+    1. desain database dan implementasi database.
+    2. Menentukan flowchart umum aplikasi.
+    3. implementasi form register.
+    4. Implementasi design pada tampilan aplikasi
+ - Wulan :
+    1. implementasi database.
+    2. Menentukan flowchart umum aplikasi.
+    3. menentukan aksi aplikasi.
+    4. Implementasi design pada tampilan aplikasi.
+ - Akbar F:
+    1. menautkan korelasi antar tabel database.
+    2. implementasi aksi.
+    3. menentukan aksi.
+    4. menambahkan aksi-aksi tambahan.
+ - Nandika:
+    1. implementasi design login dan aksinya.
+    2. menautkan database.
+    3. menambahkan splashscreen.
+ - Asis:
+    1. menambahkan aksi login (bareng dika)
+    2. menentukan design register
+    3. implementasi register
 # ================================== COMMIT Kedua (Selasa, 28 Desember 2021) ==================================
 # Progress 60%, Yang ditambahkan:
 - Melengkapi fungsi menu admin.
