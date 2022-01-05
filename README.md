@@ -10,7 +10,7 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
 7. Terdapat 6 Menu navigasi: 1.Menu dashboard, 2.menu kasir, 3.menu admin, 4.menu database, 5.menu profile, 6.menu laporan.
 
 # Anggota Team:
-1. Sekhudin (Saya) - Owner
+1. Sekhudin
 2. Wulandari
 3. Akbar Fitrian
 4. Nandika
@@ -21,34 +21,47 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
 # Progress 30%, Yang ditambahkan:
 - Database disertai korelasi dari setiap tabel.
 - Main Design dari aplikasi sudah terbentuk.
+- form login dan register
 - Tampilan Menu sudah dibuat. 3 menu sudah terbentuk dari total 6 menu.
 
 # kontribusi tiap anggota
 - Sekhudin :
-    1. Menentukan tiap tabel dari database.
-    2. Implementasi database.
-    3. Membuat prosedur database (Login kasir, login admin, update kasir kasir).
-    4. Membuat Method pemrograman dasar.
-    5. Menentukan flowcahart aplikasi secara umum.
-    6. Implementasi design dan implementasi flowchar menu profile.
-    7. Implementasi ide design aplikasi, membantu anggota lain saat koding implementasi.
-- Wulandari:
-    1. Menentukan tabel database
-    2. Menentukan korelasi database
-    3. menentukan flowchart saat login
-    4. menentukan logika ketika update kasir
-- Akbar fitrian:
-    1. Menentukan tabel database
-    2. Menentukan korelasi tiap tabel database.
-    3. Membuat Method pemrograman dasar.
-    4. Menentukan design tampilan login.
-    5. Menentukan design tampilan Admin dan implementasi, membantu anggota lain.
-- Nandika:
-    1. menentukan design tampilan card profile.
-    2. menentukan logika update profile.
-    3. Membantu anggota lain saat implementasi ide.
-    4. Membantu menentukan logika dari tiap2 menu
-- Azis:
-    1. menentukan design tampilan card admin.
-    2. menentukan logika update profile.
-    3. Membantu anggota lain saat implementasi ide.
+    1. desain database dan implementasi database.
+    2. Menentukan flowchart umum aplikasi.
+    3. implementasi form register.
+    4. Implementasi design pada tampilan aplikasi
+ - Wulan :
+    1. implementasi database.
+    2. Menentukan flowchart umum aplikasi.
+    3. menentukan aksi aplikasi.
+    4. Implementasi design pada tampilan aplikasi.
+ - Akbar F:
+    1. menautkan korelasi antar tabel database.
+    2. implementasi aksi.
+    3. menentukan aksi.
+    4. menambahkan aksi-aksi tambahan.
+ - Nandika:
+    1. implementasi design login dan aksinya.
+    2. menautkan database.
+    3. menambahkan splashscreen.
+ - Asis:
+    1. menambahkan aksi login (bareng dika)
+    2. menentukan design register
+    3. implementasi register
+# ================================== COMMIT Kedua (Selasa, 28 Desember 2021) ==================================
+# Progress 60%, Yang ditambahkan:
+- Melengkapi fungsi menu admin.
+- Implementasi menu menu transaksi menggunakan textbox dinamis sebagai opsi list pesanan. Menu kasir selesai 90%.
+- (terdapat bug saat generate noTransaksi, Cek pula saat generate idKasir selanjutnya harus clear. JANGAN LUPA)
+- Menyempurnakan user guide pada form register dan login.
+
+# kontribusi tiap anggota:
+- Sekhudin_19SA1061:
+    1. Melengkapi kode pemrograman pada menu admin, dan memperbaiki bug yang yang terjadi.
+    2. Implementasi menu transaksi, menggunakan textbox dinamis sebagai penampil list pesanan.
+    3. Memperbaiki bug di form profile.
+    4. Menambahkan fungsi update dan lainya di form admin.
+ - catatan:
+    1. Problrm solving saat generate noTransaksi,
+    2. Pastikan ulang fungsi2 pda menu admin,
+    3. rapihkan method yang sudah ada.
