@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data;
+using Microsoft.Reporting.WinForms;
+using System.Text.RegularExpressions;
 
 namespace KantjaStuck
 {
     class OperasiDB : FungsiMethod 
     {
+        FungsiMethod fn = new FungsiMethod();
         public bool insertDataList(string noTransaksi, List<string[]> pesananMakanan, List<string[]> pesananMinuman)
         {
             SqlConnection conn = this.get_Koneksi();
@@ -21,8 +24,8 @@ namespace KantjaStuck
                 foreach (string[] makanan in pesananMakanan)
                 {
                     string idMakanan = makanan[0];
-                    string qtyMakanan = makanan[2];
-                    string totalCostMakanan = makanan[3].ToString();
+                    int qtyMakanan = int.Parse(makanan[2]);
+                    int totalCostMakanan = int.Parse(makanan[3]);
                     string query = "INSERT INTO dtMakanan(noTransaksi, idMinuman, jumlahPesan, totalHarga)" +
                         "VALUES('" + noTransaksi + "','" + idMakanan + "','" + qtyMakanan + "','" + totalCostMakanan + "')";
                     SqlCommand com = new SqlCommand(query, conn);
@@ -194,7 +197,8 @@ namespace KantjaStuck
                     string id = dataInsert[0];
                     string tanggalDatang = dataInsert[1];
                     string waktuDatang = dataInsert[2];
-                    query = "INSERT INTO pelanggan(idPelanggan, tanggalDatang, waktuDatang) VALUES('"+ id + "','"+ tanggalDatang + "','"+ waktuDatang + "')";
+                    string cash = dataInsert[3];
+                    query = "INSERT INTO pelanggan(idPelanggan, tanggalDatang, waktuDatang, cash) VALUES('"+ id + "','"+ tanggalDatang + "','"+ waktuDatang + "','"+cash+"')";
                 }
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.CommandType = CommandType.Text;
@@ -236,11 +240,11 @@ namespace KantjaStuck
             {
                 if (jenisMenu == "Makanan")
                 {
-                    query = "SELECT namaMakanan FROM makanan";
+                    query = "SELECT namaMakanan FROM makanan WHERE ketersediaan='Yes'";
                 }
                 else if (jenisMenu == "Minuman")
                 {
-                    query = "SELECT namaMinuman FROM minuman";
+                    query = "SELECT namaMinuman FROM minuman WHERE ketersediaan='Yes'";
                 }
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -325,6 +329,178 @@ namespace KantjaStuck
             }
             return akunKasir;
         }
-        
+        //Laporan E-Report PDF==============================================
+        public void reportPDF(ReportViewer namaReportV, string[] arrayParam)
+        {
+            string idKasir = arrayParam[0];
+            string namaKasir = arrayParam[1];
+            string dateNow = arrayParam[2];
+            string bulanReport = arrayParam[3];
+            string tahunReport = arrayParam[4];
+            string penghasilanBruto = arrayParam[5];
+
+            string keyParam = "___" + bulanReport + "/" + tahunReport+"%";
+
+            SqlConnection conn = get_Koneksi();
+            conn.Open();
+            string query = "SELECT * FROM transaksi WHERE tglTransaksi LIKE '"+keyParam+"' ORDER BY noTransaksi ASC";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            ReportDataSource rds = new ReportDataSource("DataSet1", dt);
+            Microsoft.Reporting.WinForms.ReportParameter[] parameters= new Microsoft.Reporting.WinForms.ReportParameter[]
+            {
+                new Microsoft.Reporting.WinForms.ReportParameter("txId",idKasir),
+                new Microsoft.Reporting.WinForms.ReportParameter("txNamaKasir",namaKasir),
+                new Microsoft.Reporting.WinForms.ReportParameter("tanggalCetakReport",dateNow),
+                new Microsoft.Reporting.WinForms.ReportParameter("bulanReport",bulanReport),
+                new Microsoft.Reporting.WinForms.ReportParameter("tahunReport",tahunReport),
+                new Microsoft.Reporting.WinForms.ReportParameter("txPenghasilanBruto",penghasilanBruto)
+            };
+            namaReportV.LocalReport.ReportPath = @"E:\KULIAH\SEMESTER 5\FRAMEWORK-IFB\praktikum\KantjaStuck\KantjaStuck\Report1.rdlc";
+            namaReportV.LocalReport.DataSources.Clear();
+            namaReportV.LocalReport.DataSources.Add(rds);
+            namaReportV.LocalReport.SetParameters(parameters);
+            namaReportV.RefreshReport();
+        }
+        //==================== bruto penghasilan
+        public int getPenhasilanBruto()
+        {
+            string bulanIni = DateTime.Now.ToString("MM/yyyy");
+            string key = "___" + bulanIni;
+            string query = "SELECT SUM(totalBayar) FROM transaksi  WHERE tglTransaksi LIKE '"+key+"'";
+            int penghasilanBruto = 0;
+            try
+            {
+                SqlConnection con = get_Koneksi();
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        if (dr != null)
+                        {
+                            string getBruto = dr[0].ToString();
+                            penghasilanBruto = int.Parse(getBruto);
+                        }
+                        else
+                        {
+                            penghasilanBruto = 0;
+                        }
+                    }
+                }
+                else
+                {
+                    penghasilanBruto = 0;
+                }
+                
+            }
+            catch//(Exception ex)
+            {
+                penghasilanBruto = 0 ;
+            }
+            return penghasilanBruto;
+        }
+        //======================= Makanan Minuman terlaris
+        public void getMenuTerlasris(TextBox tb1, TextBox tb2,TextBox tb3, PictureBox pb, string jenisTerlasris)
+        {
+            string queryMax = "";
+            string id = "";
+            string max = "";
+            string namaMenu = "";
+            string namaGambar = "";
+            string jenisGambar = "Null";
+            if (jenisTerlasris == "Makanan")
+            {
+                queryMax =
+                    "SELECT s.sumTotal, s.idMinuman "+
+                    "FROM(SELECT SUM(jumlahPesan) sumTotal, idMinuman "+
+                          "FROM dtMakanan "+
+                          "GROUP BY idMinuman)s "+
+                    "WHERE sumTotal = (SELECT MAX(sumTotal) FROM(SELECT SUM(jumlahPesan) sumTotal, idMinuman "+
+                          "FROM dtMakanan "+
+                          "GROUP BY idMinuman)s); ";
+            }
+            else if (jenisTerlasris == "Minuman")
+            {
+                queryMax =
+                    "SELECT s.sumTotal, s.idMinuman " +
+                    "FROM(SELECT SUM(jumlahPesan) sumTotal, idMinuman " +
+                          "FROM dtMinuman " +
+                          "GROUP BY idMinuman)s " +
+                    "WHERE sumTotal = (SELECT MAX(sumTotal) FROM(SELECT SUM(jumlahPesan) sumTotal, idMinuman " +
+                          "FROM dtMinuman " +
+                          "GROUP BY idMinuman)s); ";
+            }
+            SqlConnection con = get_Koneksi();
+            con.Open();
+            SqlCommand cmd = new SqlCommand(queryMax, con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {
+                if (dr.HasRows)
+                {
+                    string querySelect = "";
+                    while (dr.Read())
+                    {
+                        id = dr[1].ToString();
+                        max = dr[0].ToString();
+                    }
+                    con.Close();
+
+                    if(id != "" && max != "")
+                    {
+                        if (jenisTerlasris == "Makanan")
+                        {
+                            querySelect = "SELECT gambarMakanan, namaMakanan FROM makanan WHERE idMakanan='" + id + "'";
+                        }
+                        else if (jenisTerlasris == "Minuman")
+                        {
+                            querySelect = "SELECT gambarMinuman, namaMinuman FROM minuman WHERE idMinuman='" + id + "'";
+                        }
+                        SqlCommand com = new SqlCommand(querySelect, con);
+                        con.Open();
+                        SqlDataReader d = com.ExecuteReader();
+                        try
+                        {
+                            while (d.Read())
+                            {
+                                namaGambar = d[0].ToString();
+                                namaMenu = d[1].ToString();
+                            }
+                        }
+                        catch
+                        {
+                            namaGambar = "";
+                            namaMenu = "";
+                        }
+                    }
+                    
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Peringatan");
+            }
+            if(id != "" && max != "" && namaMenu != "" && namaGambar != "")
+            {
+                string[] namaJenis = { namaGambar, jenisGambar };
+                tb1.Text = max + " Pesanan";
+                tb2.Text = id;
+                tb3.Text = namaMenu;
+                fn.tampilGambar(pb, namaJenis, jenisTerlasris);
+            }
+            else
+            {
+                tb1.Text = 0 + " Pesanan";
+                tb2.Text = "-";
+                tb3.Text = "Belum ada pesanan";
+                pb.BackgroundImage = null;
+            }
+
+        }
     }
 }

@@ -30,17 +30,19 @@ namespace KantjaStuck
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btMinimize = new System.Windows.Forms.Button();
             this.btClose = new System.Windows.Forms.Button();
             this.wrapperHeader = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.wrapperBarPencarian = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.textBox_Cari = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.timer_fadeIn = new System.Windows.Forms.Timer(this.components);
             this.WrapperMenuNavigation = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BT_LOGOUT = new System.Windows.Forms.Button();
             this.BT_DATABASE = new System.Windows.Forms.Button();
             this.BT_LAPORAN = new System.Windows.Forms.Button();
             this.BT_PROFIL = new System.Windows.Forms.Button();
@@ -48,17 +50,23 @@ namespace KantjaStuck
             this.BT_KASIR = new System.Windows.Forms.Button();
             this.BT_DASHBOARD = new System.Windows.Forms.Button();
             this.wrapperDashBoard = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button11 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.dashboard_txGreeting = new System.Windows.Forms.Label();
             this.wrapperKasir = new System.Windows.Forms.Panel();
             this.kasir_cardKontainerMinuman = new System.Windows.Forms.Panel();
@@ -117,8 +125,8 @@ namespace KantjaStuck
             this.kasir_cardNamaKasir = new System.Windows.Forms.Label();
             this.kasir_chardCBMenuMinuman = new System.Windows.Forms.ComboBox();
             this.kasir_chardCBMenuMakanan = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.kasir_cardTransaksiNotifikasi = new System.Windows.Forms.TextBox();
             this.kasir_cardNoTransaksi = new System.Windows.Forms.TextBox();
             this.kasir_cardBtTambahkan = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
@@ -136,6 +144,7 @@ namespace KantjaStuck
             this.label16 = new System.Windows.Forms.Label();
             this.admin_gvTabel = new System.Windows.Forms.DataGridView();
             this.admin_cardDetail = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.admin_cardBtUpload = new System.Windows.Forms.Button();
             this.admin_cardBtHapus = new System.Windows.Forms.Button();
@@ -153,7 +162,6 @@ namespace KantjaStuck
             this.admin_cardBtTambahkan = new System.Windows.Forms.Button();
             this.admin_cardBtUbah = new System.Windows.Forms.Button();
             this.admin_cardBtSimpan = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.admin_cardAfterLogin = new System.Windows.Forms.Panel();
             this.admin_txNamaAfterLogin = new System.Windows.Forms.TextBox();
             this.admin_txIdAfterLogin = new System.Windows.Forms.TextBox();
@@ -165,15 +173,32 @@ namespace KantjaStuck
             this.label13 = new System.Windows.Forms.Label();
             this.admin_cardBtLogin = new System.Windows.Forms.Button();
             this.wrapperDatabase = new System.Windows.Forms.Panel();
-            this.label = new System.Windows.Forms.Label();
+            this.db_cardPilihTB = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.db_CBTabel = new System.Windows.Forms.ComboBox();
+            this.db_cardDetailTrans = new System.Windows.Forms.Panel();
+            this.db_GvDetBayar = new System.Windows.Forms.DataGridView();
+            this.db_gVdetMinuman = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.db_gVdetMakanan = new System.Windows.Forms.DataGridView();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.db_gVTabel = new System.Windows.Forms.DataGridView();
+            this.db_cardTampil = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.db_cardLabelJenis = new System.Windows.Forms.Label();
+            this.db_cardPBtampil = new System.Windows.Forms.PictureBox();
+            this.db_cardTxNama = new System.Windows.Forms.TextBox();
+            this.db_cardTxHarga = new System.Windows.Forms.TextBox();
+            this.db_cardTxId = new System.Windows.Forms.TextBox();
             this.wrapperProfile = new System.Windows.Forms.Panel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.profile_GvDtMinuman = new System.Windows.Forms.DataGridView();
+            this.profile_GvDtMakanan = new System.Windows.Forms.DataGridView();
+            this.profile_GvTransaksi = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.profile_cardProfile = new System.Windows.Forms.Panel();
             this.profile_lbJenisProfile = new System.Windows.Forms.Label();
             this.profile_wrapperBtGantiProfile = new System.Windows.Forms.Panel();
@@ -196,15 +221,26 @@ namespace KantjaStuck
             this.profile_btSimpanProfile = new System.Windows.Forms.Button();
             this.profile_btUbah = new System.Windows.Forms.Button();
             this.wrapperLaporan = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.kasir_cardTransaksiNotifikasi = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
+            this.lap_btLoad = new System.Windows.Forms.Button();
+            this.laporan_txTahun = new System.Windows.Forms.TextBox();
+            this.laporan_txBulan = new System.Windows.Forms.TextBox();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.wrapperHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.wrapperBarPencarian.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.WrapperMenuNavigation.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.wrapperDashBoard.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.wrapperKasir.SuspendLayout();
             this.kasir_cardKontainerMinuman.SuspendLayout();
             this.kasir_cardKontainerMakanan.SuspendLayout();
@@ -224,10 +260,18 @@ namespace KantjaStuck
             this.admin_cardAfterLogin.SuspendLayout();
             this.admin_cardLogin.SuspendLayout();
             this.wrapperDatabase.SuspendLayout();
+            this.db_cardPilihTB.SuspendLayout();
+            this.db_cardDetailTrans.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.db_GvDetBayar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_gVdetMinuman)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_gVdetMakanan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_gVTabel)).BeginInit();
+            this.db_cardTampil.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.db_cardPBtampil)).BeginInit();
             this.wrapperProfile.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_GvDtMinuman)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_GvDtMakanan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_GvTransaksi)).BeginInit();
             this.profile_cardProfile.SuspendLayout();
             this.profile_wrapperBtGantiProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_pictureBox)).BeginInit();
@@ -304,26 +348,14 @@ namespace KantjaStuck
             this.toolStrip1.BackColor = System.Drawing.Color.DodgerBlue;
             this.toolStrip1.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.textBox_Cari});
+            this.textBox_Cari,
+            this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
-            this.toolStrip1.Size = new System.Drawing.Size(982, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(982, 42);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(0, 1, 100, 2);
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
-            this.toolStripButton1.Text = "toolStripButton1";
             // 
             // textBox_Cari
             // 
@@ -334,10 +366,18 @@ namespace KantjaStuck
             this.textBox_Cari.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.textBox_Cari.Name = "textBox_Cari";
             this.textBox_Cari.Padding = new System.Windows.Forms.Padding(10, 5, 0, 5);
-            this.textBox_Cari.Size = new System.Drawing.Size(20, 23);
+            this.textBox_Cari.Size = new System.Drawing.Size(0, 26);
             this.textBox_Cari.Text = "Cari ...";
             this.textBox_Cari.Click += new System.EventHandler(this.textBox_Cari_Click);
             this.textBox_Cari.TextChanged += new System.EventHandler(this.textBox_Cari_TextCanged);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold);
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.White;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(85, 23);
+            this.toolStripLabel1.Text = "Dashboard";
             // 
             // timer_fadeIn
             // 
@@ -348,6 +388,7 @@ namespace KantjaStuck
             // WrapperMenuNavigation
             // 
             this.WrapperMenuNavigation.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.WrapperMenuNavigation.Controls.Add(this.panel1);
             this.WrapperMenuNavigation.Controls.Add(this.BT_DATABASE);
             this.WrapperMenuNavigation.Controls.Add(this.BT_LAPORAN);
             this.WrapperMenuNavigation.Controls.Add(this.BT_PROFIL);
@@ -361,11 +402,38 @@ namespace KantjaStuck
             this.WrapperMenuNavigation.Size = new System.Drawing.Size(186, 701);
             this.WrapperMenuNavigation.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.BT_LOGOUT);
+            this.panel1.Location = new System.Drawing.Point(20, 636);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(166, 45);
+            this.panel1.TabIndex = 2;
+            // 
+            // BT_LOGOUT
+            // 
+            this.BT_LOGOUT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BT_LOGOUT.FlatAppearance.BorderSize = 0;
+            this.BT_LOGOUT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_LOGOUT.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold);
+            this.BT_LOGOUT.ForeColor = System.Drawing.Color.White;
+            this.BT_LOGOUT.Location = new System.Drawing.Point(5, 5);
+            this.BT_LOGOUT.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.BT_LOGOUT.Name = "BT_LOGOUT";
+            this.BT_LOGOUT.Size = new System.Drawing.Size(161, 35);
+            this.BT_LOGOUT.TabIndex = 1;
+            this.BT_LOGOUT.Text = "<< Keluar";
+            this.BT_LOGOUT.UseVisualStyleBackColor = false;
+            this.BT_LOGOUT.Click += new System.EventHandler(this.BT_LOGOUT_Click);
+            // 
             // BT_DATABASE
             // 
             this.BT_DATABASE.FlatAppearance.BorderSize = 0;
             this.BT_DATABASE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_DATABASE.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold);
+            this.BT_DATABASE.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BT_DATABASE.Location = new System.Drawing.Point(20, 176);
             this.BT_DATABASE.Margin = new System.Windows.Forms.Padding(0);
             this.BT_DATABASE.Name = "BT_DATABASE";
@@ -459,17 +527,7 @@ namespace KantjaStuck
             // 
             // wrapperDashBoard
             // 
-            this.wrapperDashBoard.Controls.Add(this.label27);
-            this.wrapperDashBoard.Controls.Add(this.label26);
-            this.wrapperDashBoard.Controls.Add(this.textBox29);
-            this.wrapperDashBoard.Controls.Add(this.textBox24);
-            this.wrapperDashBoard.Controls.Add(this.listBox1);
-            this.wrapperDashBoard.Controls.Add(this.textBox28);
-            this.wrapperDashBoard.Controls.Add(this.textBox27);
-            this.wrapperDashBoard.Controls.Add(this.textBox26);
-            this.wrapperDashBoard.Controls.Add(this.textBox25);
-            this.wrapperDashBoard.Controls.Add(this.flowLayoutPanel1);
-            this.wrapperDashBoard.Controls.Add(this.button11);
+            this.wrapperDashBoard.Controls.Add(this.panel6);
             this.wrapperDashBoard.Controls.Add(this.dashboard_txGreeting);
             this.wrapperDashBoard.Location = new System.Drawing.Point(203, 107);
             this.wrapperDashBoard.Margin = new System.Windows.Forms.Padding(0, 0, 10, 10);
@@ -477,92 +535,202 @@ namespace KantjaStuck
             this.wrapperDashBoard.Size = new System.Drawing.Size(982, 624);
             this.wrapperDashBoard.TabIndex = 4;
             // 
-            // label27
+            // panel6
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(598, 91);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(128, 13);
-            this.label27.TabIndex = 8;
-            this.label27.Text = "count list pesan makanan";
+            this.panel6.Controls.Add(this.panel4);
+            this.panel6.Controls.Add(this.panel3);
+            this.panel6.Controls.Add(this.panel2);
+            this.panel6.Location = new System.Drawing.Point(98, 54);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(786, 287);
+            this.panel6.TabIndex = 2;
             // 
-            // label26
+            // panel4
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(456, 95);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(102, 13);
-            this.label26.TabIndex = 8;
-            this.label26.Text = "count list komponen";
+            this.panel4.Controls.Add(this.textBox5);
+            this.panel4.Controls.Add(this.textBox10);
+            this.panel4.Controls.Add(this.textBox6);
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Location = new System.Drawing.Point(535, 12);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(239, 256);
+            this.panel4.TabIndex = 1;
             // 
-            // textBox29
+            // textBox5
             // 
-            this.textBox29.Location = new System.Drawing.Point(601, 111);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(100, 20);
-            this.textBox29.TabIndex = 7;
+            this.textBox5.BackColor = System.Drawing.Color.White;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.textBox5.Location = new System.Drawing.Point(80, 210);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(150, 20);
+            this.textBox5.TabIndex = 5;
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox24
+            // textBox10
             // 
-            this.textBox24.Location = new System.Drawing.Point(448, 111);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(100, 20);
-            this.textBox24.TabIndex = 7;
+            this.textBox10.BackColor = System.Drawing.Color.White;
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox10.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.textBox10.Location = new System.Drawing.Point(45, 177);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(144, 20);
+            this.textBox10.TabIndex = 5;
+            this.textBox10.Text = "-";
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // listBox1
+            // textBox6
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(477, 203);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(435, 264);
-            this.listBox1.TabIndex = 6;
+            this.textBox6.BackColor = System.Drawing.Color.White;
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox6.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.textBox6.Location = new System.Drawing.Point(8, 210);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(66, 20);
+            this.textBox6.TabIndex = 5;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox28
+            // pictureBox1
             // 
-            this.textBox28.Location = new System.Drawing.Point(812, 50);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(100, 20);
-            this.textBox28.TabIndex = 5;
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(45, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(144, 171);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
-            // textBox27
+            // label3
             // 
-            this.textBox27.Location = new System.Drawing.Point(697, 50);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(100, 20);
-            this.textBox27.TabIndex = 5;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(59, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 22);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Minuman Terlaris";
             // 
-            // textBox26
+            // panel3
             // 
-            this.textBox26.Location = new System.Drawing.Point(573, 50);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(100, 20);
-            this.textBox26.TabIndex = 5;
+            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.textBox8);
+            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(272, 11);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(239, 257);
+            this.panel3.TabIndex = 1;
             // 
-            // textBox25
+            // textBox4
             // 
-            this.textBox25.Location = new System.Drawing.Point(448, 50);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(100, 20);
-            this.textBox25.TabIndex = 5;
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.textBox4.Location = new System.Drawing.Point(80, 210);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(150, 20);
+            this.textBox4.TabIndex = 5;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // flowLayoutPanel1
+            // textBox8
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(14, 43);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(355, 427);
-            this.flowLayoutPanel1.TabIndex = 3;
+            this.textBox8.BackColor = System.Drawing.Color.White;
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.textBox8.Location = new System.Drawing.Point(45, 177);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(144, 20);
+            this.textBox8.TabIndex = 5;
+            this.textBox8.Text = "-";
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button11
+            // textBox2
             // 
-            this.button11.Location = new System.Drawing.Point(307, 536);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.textBox2.Location = new System.Drawing.Point(8, 210);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(66, 20);
+            this.textBox2.TabIndex = 5;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(45, 26);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(144, 171);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(59, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 22);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Makanan Terlaris";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.textBox7);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(9, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(239, 256);
+            this.panel2.TabIndex = 1;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox7.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.textBox7.ForeColor = System.Drawing.Color.White;
+            this.textBox7.Location = new System.Drawing.Point(40, 136);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(150, 20);
+            this.textBox7.TabIndex = 5;
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Poppins", 14F, System.Drawing.FontStyle.Bold);
+            this.textBox1.Location = new System.Drawing.Point(14, 206);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(202, 28);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "-";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(29, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(177, 22);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Penghasilan Kotor Bulan Ini";
             // 
             // dashboard_txGreeting
             // 
@@ -571,9 +739,9 @@ namespace KantjaStuck
             this.dashboard_txGreeting.Location = new System.Drawing.Point(10, 10);
             this.dashboard_txGreeting.Margin = new System.Windows.Forms.Padding(10);
             this.dashboard_txGreeting.Name = "dashboard_txGreeting";
-            this.dashboard_txGreeting.Size = new System.Drawing.Size(85, 23);
+            this.dashboard_txGreeting.Size = new System.Drawing.Size(82, 23);
             this.dashboard_txGreeting.TabIndex = 0;
-            this.dashboard_txGreeting.Text = "Dashboard";
+            this.dashboard_txGreeting.Text = "Hallo, User";
             // 
             // wrapperKasir
             // 
@@ -583,7 +751,6 @@ namespace KantjaStuck
             this.wrapperKasir.Controls.Add(this.kasir_totalPesananMinuman);
             this.wrapperKasir.Controls.Add(this.kasir_totalPesananMakanan);
             this.wrapperKasir.Controls.Add(this.kasir_cardPilihMenu);
-            this.wrapperKasir.Controls.Add(this.label1);
             this.wrapperKasir.Controls.Add(this.label6);
             this.wrapperKasir.Controls.Add(this.kasir_cardTransaksiNotifikasi);
             this.wrapperKasir.Controls.Add(this.kasir_cardNoTransaksi);
@@ -1286,17 +1453,6 @@ namespace KantjaStuck
             this.kasir_chardCBMenuMakanan.TabIndex = 29;
             this.kasir_chardCBMenuMakanan.SelectedIndexChanged += new System.EventHandler(this.kasir_chardCBMenuMakanan_SelectedIndexChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(16, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Kasir";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -1307,6 +1463,18 @@ namespace KantjaStuck
             this.label6.Size = new System.Drawing.Size(74, 22);
             this.label6.TabIndex = 0;
             this.label6.Text = "No. Trans :";
+            // 
+            // kasir_cardTransaksiNotifikasi
+            // 
+            this.kasir_cardTransaksiNotifikasi.BackColor = System.Drawing.Color.White;
+            this.kasir_cardTransaksiNotifikasi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.kasir_cardTransaksiNotifikasi.Font = new System.Drawing.Font("Poppins", 6.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kasir_cardTransaksiNotifikasi.Location = new System.Drawing.Point(527, 445);
+            this.kasir_cardTransaksiNotifikasi.Name = "kasir_cardTransaksiNotifikasi";
+            this.kasir_cardTransaksiNotifikasi.ReadOnly = true;
+            this.kasir_cardTransaksiNotifikasi.Size = new System.Drawing.Size(255, 14);
+            this.kasir_cardTransaksiNotifikasi.TabIndex = 23;
+            this.kasir_cardTransaksiNotifikasi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // kasir_cardNoTransaksi
             // 
@@ -1361,7 +1529,6 @@ namespace KantjaStuck
             this.wrapperAdmin.Controls.Add(this.admin_cardCB);
             this.wrapperAdmin.Controls.Add(this.admin_cardGridView);
             this.wrapperAdmin.Controls.Add(this.admin_cardDetail);
-            this.wrapperAdmin.Controls.Add(this.label2);
             this.wrapperAdmin.Controls.Add(this.admin_cardAfterLogin);
             this.wrapperAdmin.Controls.Add(this.admin_cardLogin);
             this.wrapperAdmin.Location = new System.Drawing.Point(203, 107);
@@ -1511,6 +1678,18 @@ namespace KantjaStuck
             this.admin_cardDetail.Size = new System.Drawing.Size(432, 240);
             this.admin_cardDetail.TabIndex = 30;
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label28.Font = new System.Drawing.Font("Poppins", 6F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label28.Location = new System.Drawing.Point(8, 3);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(36, 14);
+            this.label28.TabIndex = 33;
+            this.label28.Text = "label28";
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.admin_cardBtUpload);
@@ -1548,6 +1727,7 @@ namespace KantjaStuck
             this.admin_cardBtHapus.TabIndex = 22;
             this.admin_cardBtHapus.Text = "Hapus";
             this.admin_cardBtHapus.UseVisualStyleBackColor = false;
+            this.admin_cardBtHapus.Click += new System.EventHandler(this.admin_cardBtHapus_Click);
             // 
             // admin_cardBtUbahFoto
             // 
@@ -1720,17 +1900,6 @@ namespace KantjaStuck
             this.admin_cardBtSimpan.UseVisualStyleBackColor = false;
             this.admin_cardBtSimpan.Click += new System.EventHandler(this.admin_cardBtSimpan_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(10, 10);
-            this.label2.Margin = new System.Windows.Forms.Padding(10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 23);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Admin";
-            // 
             // admin_cardAfterLogin
             // 
             this.admin_cardAfterLogin.BackColor = System.Drawing.Color.Gainsboro;
@@ -1849,33 +2018,243 @@ namespace KantjaStuck
             // 
             // wrapperDatabase
             // 
-            this.wrapperDatabase.Controls.Add(this.label);
+            this.wrapperDatabase.Controls.Add(this.db_cardPilihTB);
+            this.wrapperDatabase.Controls.Add(this.db_cardDetailTrans);
+            this.wrapperDatabase.Controls.Add(this.db_gVTabel);
+            this.wrapperDatabase.Controls.Add(this.db_cardTampil);
             this.wrapperDatabase.Location = new System.Drawing.Point(202, 107);
             this.wrapperDatabase.Margin = new System.Windows.Forms.Padding(0, 0, 10, 10);
             this.wrapperDatabase.Name = "wrapperDatabase";
             this.wrapperDatabase.Size = new System.Drawing.Size(982, 624);
             this.wrapperDatabase.TabIndex = 4;
             // 
-            // label
+            // db_cardPilihTB
             // 
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label.Location = new System.Drawing.Point(10, 10);
-            this.label.Margin = new System.Windows.Forms.Padding(10);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(75, 23);
-            this.label.TabIndex = 0;
-            this.label.Text = "Database";
+            this.db_cardPilihTB.Controls.Add(this.label29);
+            this.db_cardPilihTB.Controls.Add(this.db_CBTabel);
+            this.db_cardPilihTB.Location = new System.Drawing.Point(343, 48);
+            this.db_cardPilihTB.Name = "db_cardPilihTB";
+            this.db_cardPilihTB.Size = new System.Drawing.Size(623, 45);
+            this.db_cardPilihTB.TabIndex = 36;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Poppins SemiBold", 9F, System.Drawing.FontStyle.Bold);
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(5, 11);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(74, 22);
+            this.label29.TabIndex = 28;
+            this.label29.Text = "Pilih tabel :";
+            // 
+            // db_CBTabel
+            // 
+            this.db_CBTabel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.db_CBTabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.db_CBTabel.Font = new System.Drawing.Font("Poppins", 9F);
+            this.db_CBTabel.FormattingEnabled = true;
+            this.db_CBTabel.Location = new System.Drawing.Point(293, 7);
+            this.db_CBTabel.Name = "db_CBTabel";
+            this.db_CBTabel.Size = new System.Drawing.Size(318, 30);
+            this.db_CBTabel.TabIndex = 33;
+            this.db_CBTabel.SelectedIndexChanged += new System.EventHandler(this.db_CBTabel_SelectedIndexChanged);
+            // 
+            // db_cardDetailTrans
+            // 
+            this.db_cardDetailTrans.Controls.Add(this.db_GvDetBayar);
+            this.db_cardDetailTrans.Controls.Add(this.db_gVdetMinuman);
+            this.db_cardDetailTrans.Controls.Add(this.label4);
+            this.db_cardDetailTrans.Controls.Add(this.db_gVdetMakanan);
+            this.db_cardDetailTrans.Controls.Add(this.label35);
+            this.db_cardDetailTrans.Controls.Add(this.label34);
+            this.db_cardDetailTrans.Location = new System.Drawing.Point(330, 328);
+            this.db_cardDetailTrans.Name = "db_cardDetailTrans";
+            this.db_cardDetailTrans.Size = new System.Drawing.Size(645, 286);
+            this.db_cardDetailTrans.TabIndex = 35;
+            // 
+            // db_GvDetBayar
+            // 
+            this.db_GvDetBayar.AllowUserToAddRows = false;
+            this.db_GvDetBayar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.db_GvDetBayar.BackgroundColor = System.Drawing.Color.White;
+            this.db_GvDetBayar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.db_GvDetBayar.Location = new System.Drawing.Point(112, 213);
+            this.db_GvDetBayar.Name = "db_GvDetBayar";
+            this.db_GvDetBayar.Size = new System.Drawing.Size(525, 65);
+            this.db_GvDetBayar.TabIndex = 34;
+            // 
+            // db_gVdetMinuman
+            // 
+            this.db_gVdetMinuman.AllowUserToAddRows = false;
+            this.db_gVdetMinuman.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.db_gVdetMinuman.BackgroundColor = System.Drawing.Color.White;
+            this.db_gVdetMinuman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.db_gVdetMinuman.Location = new System.Drawing.Point(111, 113);
+            this.db_gVdetMinuman.Name = "db_gVdetMinuman";
+            this.db_gVdetMinuman.Size = new System.Drawing.Size(525, 90);
+            this.db_gVdetMinuman.TabIndex = 34;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 8F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(14, 213);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 19);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Detail :";
+            // 
+            // db_gVdetMakanan
+            // 
+            this.db_gVdetMakanan.AllowUserToAddRows = false;
+            this.db_gVdetMakanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.db_gVdetMakanan.BackgroundColor = System.Drawing.Color.White;
+            this.db_gVdetMakanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.db_gVdetMakanan.Location = new System.Drawing.Point(112, 12);
+            this.db_gVdetMakanan.Name = "db_gVdetMakanan";
+            this.db_gVdetMakanan.Size = new System.Drawing.Size(525, 90);
+            this.db_gVdetMakanan.TabIndex = 34;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Poppins SemiBold", 8F, System.Drawing.FontStyle.Bold);
+            this.label35.Location = new System.Drawing.Point(13, 113);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(68, 19);
+            this.label35.TabIndex = 28;
+            this.label35.Text = "Minuman :";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Poppins SemiBold", 8F, System.Drawing.FontStyle.Bold);
+            this.label34.Location = new System.Drawing.Point(13, 12);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(66, 19);
+            this.label34.TabIndex = 28;
+            this.label34.Text = "Makanan :";
+            // 
+            // db_gVTabel
+            // 
+            this.db_gVTabel.AllowUserToAddRows = false;
+            this.db_gVTabel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.db_gVTabel.BackgroundColor = System.Drawing.Color.White;
+            this.db_gVTabel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.db_gVTabel.Location = new System.Drawing.Point(343, 103);
+            this.db_gVTabel.Name = "db_gVTabel";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MediumBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.db_gVTabel.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.db_gVTabel.Size = new System.Drawing.Size(625, 219);
+            this.db_gVTabel.TabIndex = 32;
+            this.db_gVTabel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.db_gVTabel_cellClick);
+            // 
+            // db_cardTampil
+            // 
+            this.db_cardTampil.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.db_cardTampil.Controls.Add(this.label31);
+            this.db_cardTampil.Controls.Add(this.label32);
+            this.db_cardTampil.Controls.Add(this.db_cardLabelJenis);
+            this.db_cardTampil.Controls.Add(this.db_cardPBtampil);
+            this.db_cardTampil.Controls.Add(this.db_cardTxNama);
+            this.db_cardTampil.Controls.Add(this.db_cardTxHarga);
+            this.db_cardTampil.Controls.Add(this.db_cardTxId);
+            this.db_cardTampil.Location = new System.Drawing.Point(14, 48);
+            this.db_cardTampil.Name = "db_cardTampil";
+            this.db_cardTampil.Size = new System.Drawing.Size(307, 558);
+            this.db_cardTampil.TabIndex = 31;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(21, 471);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(47, 19);
+            this.label31.TabIndex = 29;
+            this.label31.Text = "Harga :";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(21, 431);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(47, 19);
+            this.label32.TabIndex = 29;
+            this.label32.Text = "Nama :";
+            // 
+            // db_cardLabelJenis
+            // 
+            this.db_cardLabelJenis.AutoSize = true;
+            this.db_cardLabelJenis.Font = new System.Drawing.Font("Poppins SemiBold", 8F, System.Drawing.FontStyle.Bold);
+            this.db_cardLabelJenis.Location = new System.Drawing.Point(101, 391);
+            this.db_cardLabelJenis.Name = "db_cardLabelJenis";
+            this.db_cardLabelJenis.Size = new System.Drawing.Size(60, 19);
+            this.db_cardLabelJenis.TabIndex = 28;
+            this.db_cardLabelJenis.Text = "Makanan";
+            // 
+            // db_cardPBtampil
+            // 
+            this.db_cardPBtampil.BackColor = System.Drawing.Color.White;
+            this.db_cardPBtampil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.db_cardPBtampil.Location = new System.Drawing.Point(25, 29);
+            this.db_cardPBtampil.Name = "db_cardPBtampil";
+            this.db_cardPBtampil.Size = new System.Drawing.Size(250, 332);
+            this.db_cardPBtampil.TabIndex = 27;
+            this.db_cardPBtampil.TabStop = false;
+            // 
+            // db_cardTxNama
+            // 
+            this.db_cardTxNama.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.db_cardTxNama.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.db_cardTxNama.Location = new System.Drawing.Point(101, 430);
+            this.db_cardTxNama.Name = "db_cardTxNama";
+            this.db_cardTxNama.Size = new System.Drawing.Size(174, 20);
+            this.db_cardTxNama.TabIndex = 23;
+            this.db_cardTxNama.Text = "-";
+            this.db_cardTxNama.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // db_cardTxHarga
+            // 
+            this.db_cardTxHarga.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.db_cardTxHarga.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.db_cardTxHarga.Location = new System.Drawing.Point(101, 470);
+            this.db_cardTxHarga.Name = "db_cardTxHarga";
+            this.db_cardTxHarga.Size = new System.Drawing.Size(174, 20);
+            this.db_cardTxHarga.TabIndex = 23;
+            this.db_cardTxHarga.Text = "-";
+            this.db_cardTxHarga.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // db_cardTxId
+            // 
+            this.db_cardTxId.BackColor = System.Drawing.Color.White;
+            this.db_cardTxId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.db_cardTxId.Font = new System.Drawing.Font("Poppins SemiBold", 10F, System.Drawing.FontStyle.Bold);
+            this.db_cardTxId.ForeColor = System.Drawing.Color.White;
+            this.db_cardTxId.Location = new System.Drawing.Point(167, 390);
+            this.db_cardTxId.Name = "db_cardTxId";
+            this.db_cardTxId.ReadOnly = true;
+            this.db_cardTxId.Size = new System.Drawing.Size(108, 20);
+            this.db_cardTxId.TabIndex = 24;
+            this.db_cardTxId.Text = "KS211201";
+            this.db_cardTxId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // wrapperProfile
             // 
-            this.wrapperProfile.Controls.Add(this.dataGridView3);
-            this.wrapperProfile.Controls.Add(this.dataGridView2);
-            this.wrapperProfile.Controls.Add(this.dataGridView1);
+            this.wrapperProfile.Controls.Add(this.profile_GvDtMinuman);
+            this.wrapperProfile.Controls.Add(this.profile_GvDtMakanan);
+            this.wrapperProfile.Controls.Add(this.profile_GvTransaksi);
             this.wrapperProfile.Controls.Add(this.label11);
             this.wrapperProfile.Controls.Add(this.label10);
             this.wrapperProfile.Controls.Add(this.label5);
-            this.wrapperProfile.Controls.Add(this.label3);
             this.wrapperProfile.Controls.Add(this.profile_cardProfile);
             this.wrapperProfile.Location = new System.Drawing.Point(202, 107);
             this.wrapperProfile.Margin = new System.Windows.Forms.Padding(0, 0, 10, 10);
@@ -1883,29 +2262,39 @@ namespace KantjaStuck
             this.wrapperProfile.Size = new System.Drawing.Size(982, 624);
             this.wrapperProfile.TabIndex = 4;
             // 
-            // dataGridView3
+            // profile_GvDtMinuman
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(663, 353);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(290, 246);
-            this.dataGridView3.TabIndex = 5;
+            this.profile_GvDtMinuman.AllowUserToAddRows = false;
+            this.profile_GvDtMinuman.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.profile_GvDtMinuman.BackgroundColor = System.Drawing.Color.White;
+            this.profile_GvDtMinuman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.profile_GvDtMinuman.Location = new System.Drawing.Point(663, 353);
+            this.profile_GvDtMinuman.Name = "profile_GvDtMinuman";
+            this.profile_GvDtMinuman.Size = new System.Drawing.Size(290, 246);
+            this.profile_GvDtMinuman.TabIndex = 5;
             // 
-            // dataGridView2
+            // profile_GvDtMakanan
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(367, 354);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(290, 246);
-            this.dataGridView2.TabIndex = 5;
+            this.profile_GvDtMakanan.AllowUserToAddRows = false;
+            this.profile_GvDtMakanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.profile_GvDtMakanan.BackgroundColor = System.Drawing.Color.White;
+            this.profile_GvDtMakanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.profile_GvDtMakanan.Location = new System.Drawing.Point(367, 354);
+            this.profile_GvDtMakanan.Name = "profile_GvDtMakanan";
+            this.profile_GvDtMakanan.Size = new System.Drawing.Size(290, 246);
+            this.profile_GvDtMakanan.TabIndex = 5;
             // 
-            // dataGridView1
+            // profile_GvTransaksi
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(367, 63);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(586, 259);
-            this.dataGridView1.TabIndex = 5;
+            this.profile_GvTransaksi.AllowUserToAddRows = false;
+            this.profile_GvTransaksi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.profile_GvTransaksi.BackgroundColor = System.Drawing.Color.White;
+            this.profile_GvTransaksi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.profile_GvTransaksi.Location = new System.Drawing.Point(367, 63);
+            this.profile_GvTransaksi.Name = "profile_GvTransaksi";
+            this.profile_GvTransaksi.Size = new System.Drawing.Size(586, 259);
+            this.profile_GvTransaksi.TabIndex = 5;
+            this.profile_GvTransaksi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.profile_GvTransaksi_cellClick);
             // 
             // label11
             // 
@@ -1939,17 +2328,6 @@ namespace KantjaStuck
             this.label5.Size = new System.Drawing.Size(77, 23);
             this.label5.TabIndex = 0;
             this.label5.Text = "Transaksi";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(10, 10);
-            this.label3.Margin = new System.Windows.Forms.Padding(10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Profile";
             // 
             // profile_cardProfile
             // 
@@ -2205,47 +2583,86 @@ namespace KantjaStuck
             // 
             // wrapperLaporan
             // 
-            this.wrapperLaporan.Controls.Add(this.label4);
+            this.wrapperLaporan.Controls.Add(this.lap_btLoad);
+            this.wrapperLaporan.Controls.Add(this.laporan_txTahun);
+            this.wrapperLaporan.Controls.Add(this.laporan_txBulan);
+            this.wrapperLaporan.Controls.Add(this.reportViewer1);
+            this.wrapperLaporan.Controls.Add(this.label27);
+            this.wrapperLaporan.Controls.Add(this.label26);
             this.wrapperLaporan.Location = new System.Drawing.Point(202, 107);
             this.wrapperLaporan.Margin = new System.Windows.Forms.Padding(0, 0, 10, 10);
             this.wrapperLaporan.Name = "wrapperLaporan";
             this.wrapperLaporan.Size = new System.Drawing.Size(982, 624);
             this.wrapperLaporan.TabIndex = 4;
             // 
-            // label4
+            // lap_btLoad
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(10, 10);
-            this.label4.Margin = new System.Windows.Forms.Padding(10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 23);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Laporan";
+            this.lap_btLoad.FlatAppearance.BorderSize = 0;
+            this.lap_btLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lap_btLoad.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lap_btLoad.Location = new System.Drawing.Point(309, 47);
+            this.lap_btLoad.Name = "lap_btLoad";
+            this.lap_btLoad.Size = new System.Drawing.Size(75, 25);
+            this.lap_btLoad.TabIndex = 5;
+            this.lap_btLoad.Text = "Load";
+            this.lap_btLoad.UseVisualStyleBackColor = true;
+            this.lap_btLoad.Click += new System.EventHandler(this.button1_Click);
             // 
-            // kasir_cardTransaksiNotifikasi
+            // laporan_txTahun
             // 
-            this.kasir_cardTransaksiNotifikasi.BackColor = System.Drawing.Color.White;
-            this.kasir_cardTransaksiNotifikasi.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.kasir_cardTransaksiNotifikasi.Font = new System.Drawing.Font("Poppins", 6.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kasir_cardTransaksiNotifikasi.Location = new System.Drawing.Point(527, 445);
-            this.kasir_cardTransaksiNotifikasi.Name = "kasir_cardTransaksiNotifikasi";
-            this.kasir_cardTransaksiNotifikasi.ReadOnly = true;
-            this.kasir_cardTransaksiNotifikasi.Size = new System.Drawing.Size(255, 14);
-            this.kasir_cardTransaksiNotifikasi.TabIndex = 23;
-            this.kasir_cardTransaksiNotifikasi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.laporan_txTahun.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laporan_txTahun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.laporan_txTahun.Location = new System.Drawing.Point(220, 48);
+            this.laporan_txTahun.Name = "laporan_txTahun";
+            this.laporan_txTahun.Size = new System.Drawing.Size(52, 23);
+            this.laporan_txTahun.TabIndex = 3;
+            this.laporan_txTahun.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label28
+            // laporan_txBulan
             // 
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label28.Font = new System.Drawing.Font("Poppins", 6F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label28.Location = new System.Drawing.Point(8, 3);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(36, 14);
-            this.label28.TabIndex = 33;
-            this.label28.Text = "label28";
+            this.laporan_txBulan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.laporan_txBulan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.laporan_txBulan.Location = new System.Drawing.Point(71, 48);
+            this.laporan_txBulan.Name = "laporan_txBulan";
+            this.laporan_txBulan.Size = new System.Drawing.Size(25, 23);
+            this.laporan_txBulan.TabIndex = 2;
+            this.laporan_txBulan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Location = new System.Drawing.Point(18, 80);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(949, 526);
+            this.reportViewer1.TabIndex = 1;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label27.Location = new System.Drawing.Point(156, 51);
+            this.label27.Margin = new System.Windows.Forms.Padding(10);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(57, 17);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Tahun :";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label26.Location = new System.Drawing.Point(15, 51);
+            this.label26.Margin = new System.Windows.Forms.Padding(10);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(52, 17);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Bulan :";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(23, 23);
+            this.toolStripLabel2.Text = "toolStripLabel2";
             // 
             // Home
             // 
@@ -2256,12 +2673,12 @@ namespace KantjaStuck
             this.Controls.Add(this.WrapperMenuNavigation);
             this.Controls.Add(this.wrapperHeader);
             this.Controls.Add(this.wrapperBarPencarian);
-            this.Controls.Add(this.wrapperAdmin);
-            this.Controls.Add(this.wrapperKasir);
-            this.Controls.Add(this.wrapperDashBoard);
             this.Controls.Add(this.wrapperLaporan);
             this.Controls.Add(this.wrapperProfile);
             this.Controls.Add(this.wrapperDatabase);
+            this.Controls.Add(this.wrapperAdmin);
+            this.Controls.Add(this.wrapperKasir);
+            this.Controls.Add(this.wrapperDashBoard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Home";
             this.Opacity = 0D;
@@ -2275,8 +2692,18 @@ namespace KantjaStuck
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.WrapperMenuNavigation.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.wrapperDashBoard.ResumeLayout(false);
             this.wrapperDashBoard.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.wrapperKasir.ResumeLayout(false);
             this.wrapperKasir.PerformLayout();
             this.kasir_cardKontainerMinuman.ResumeLayout(false);
@@ -2289,7 +2716,6 @@ namespace KantjaStuck
             this.kasir_cardPilihMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kasir_cardPBMenu)).EndInit();
             this.wrapperAdmin.ResumeLayout(false);
-            this.wrapperAdmin.PerformLayout();
             this.admin_cardCB.ResumeLayout(false);
             this.admin_cardCB.PerformLayout();
             this.admin_cardGridView.ResumeLayout(false);
@@ -2308,12 +2734,22 @@ namespace KantjaStuck
             this.admin_cardLogin.ResumeLayout(false);
             this.admin_cardLogin.PerformLayout();
             this.wrapperDatabase.ResumeLayout(false);
-            this.wrapperDatabase.PerformLayout();
+            this.db_cardPilihTB.ResumeLayout(false);
+            this.db_cardPilihTB.PerformLayout();
+            this.db_cardDetailTrans.ResumeLayout(false);
+            this.db_cardDetailTrans.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.db_GvDetBayar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_gVdetMinuman)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_gVdetMakanan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_gVTabel)).EndInit();
+            this.db_cardTampil.ResumeLayout(false);
+            this.db_cardTampil.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.db_cardPBtampil)).EndInit();
             this.wrapperProfile.ResumeLayout(false);
             this.wrapperProfile.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_GvDtMinuman)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_GvDtMakanan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_GvTransaksi)).EndInit();
             this.profile_cardProfile.ResumeLayout(false);
             this.profile_cardProfile.PerformLayout();
             this.profile_wrapperBtGantiProfile.ResumeLayout(false);
@@ -2332,7 +2768,6 @@ namespace KantjaStuck
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel wrapperBarPencarian;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripTextBox textBox_Cari;
         private System.Windows.Forms.Timer timer_fadeIn;
         private System.Windows.Forms.Panel WrapperMenuNavigation;
@@ -2343,17 +2778,11 @@ namespace KantjaStuck
         private System.Windows.Forms.Button BT_DATABASE;
         private System.Windows.Forms.Button BT_LAPORAN;
         private System.Windows.Forms.Button BT_PROFIL;
-        private System.Windows.Forms.Label dashboard_txGreeting;
         private System.Windows.Forms.Panel wrapperKasir;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel wrapperAdmin;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel wrapperDatabase;
-        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Panel wrapperProfile;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel wrapperLaporan;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox profile_pictureBox;
         private System.Windows.Forms.TextBox profile_txStatusAdmin;
         private System.Windows.Forms.TextBox profile_txPasswordKasir;
@@ -2371,9 +2800,9 @@ namespace KantjaStuck
         private System.Windows.Forms.Button profile_btGantiProfile;
         private System.Windows.Forms.ComboBox profile_cbAvatar;
         private System.Windows.Forms.TextBox profile_txIdKasir;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView profile_GvDtMinuman;
+        private System.Windows.Forms.DataGridView profile_GvDtMakanan;
+        private System.Windows.Forms.DataGridView profile_GvTransaksi;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
@@ -2463,8 +2892,6 @@ namespace KantjaStuck
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Panel kasir_cardKontainerMakanan;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel kasir_cardKontainerMinuman;
         private System.Windows.Forms.FlowLayoutPanel kasir_wrapperPesananMinuman;
         private System.Windows.Forms.TextBox textBox3;
@@ -2472,15 +2899,6 @@ namespace KantjaStuck
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.FlowLayoutPanel kasir_wrapperPesananMakanan;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox24;
         private System.Windows.Forms.TextBox kasir_sumTotalMinuman;
         private System.Windows.Forms.TextBox kasir_sumTotalMakanan;
         private System.Windows.Forms.TextBox kasir_totalPesananMinuman;
@@ -2494,5 +2912,52 @@ namespace KantjaStuck
         private System.Windows.Forms.ComboBox kasir_chardCBMenuMinuman;
         private System.Windows.Forms.TextBox kasir_cardTransaksiNotifikasi;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button BT_LOGOUT;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.TextBox laporan_txTahun;
+        private System.Windows.Forms.TextBox laporan_txBulan;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button lap_btLoad;
+        private System.Windows.Forms.Panel db_cardTampil;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label db_cardLabelJenis;
+        private System.Windows.Forms.PictureBox db_cardPBtampil;
+        private System.Windows.Forms.TextBox db_cardTxNama;
+        private System.Windows.Forms.TextBox db_cardTxHarga;
+        private System.Windows.Forms.TextBox db_cardTxId;
+        private System.Windows.Forms.Panel db_cardDetailTrans;
+        private System.Windows.Forms.DataGridView db_gVdetMinuman;
+        private System.Windows.Forms.DataGridView db_gVdetMakanan;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.DataGridView db_gVTabel;
+        private System.Windows.Forms.ComboBox db_CBTabel;
+        private System.Windows.Forms.Panel db_cardPilihTB;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.Label dashboard_txGreeting;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.DataGridView db_GvDetBayar;
+        private System.Windows.Forms.Label label4;
     }
 }

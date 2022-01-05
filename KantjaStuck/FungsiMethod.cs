@@ -30,31 +30,31 @@ namespace KantjaStuck
         public string getAutoID(string jenisId)
         { ///^SW\d{4}$/
             // untuk kasir
-            Regex patternKodeTahunBulan = new Regex(@"(\d{4})");
+            //Regex patternKodeTahunBulan = new Regex(@"(\d{4})");
             // untuk pelanggan
-            Regex patternTanggalBulanTahun = new Regex(@"(\d{6})");
+            //Regex patternTanggalBulanTahun = new Regex(@"(\d{6})");
             // untuk peroleh kode urut
-            Regex patternKodeUrut = new Regex(@"(\d{2})$");
+            //Regex patternKodeUrut = new Regex(@"(\d{2})$");
             string tahunBulanIni = DateTime.Now.ToString("yyMM"); // untuk kasir
             string tanggalBulanTahunIni = DateTime.Now.ToString("ddMMyy");
             string next_ID = "";
             string query = "";
             if (jenisId == "Kasir")
             {
-                query = "SELECT MAX (idKasir) FROM kasir";
+                query = "SELECT MAX (right(idKasir,3)) FROM kasir";
             }else if (jenisId == "Makanan")
             {
-                query = "SELECT MAX (idMakanan) FROM makanan";
+                query = "SELECT MAX (right(idMakanan,2)) FROM makanan";
             }else if (jenisId == "Minuman")
             {
-                query = "SELECT MAX (idMinuman) FROM minuman";
+                query = "SELECT MAX (right(idMinuman,2)) FROM minuman";
             }else if (jenisId == "Transaksi")
             {
-                query = "SELECT MAX (noTransaksi) FROM transaksi";
+                query = "SELECT MAX (right(noTransaksi,3)) FROM transaksi";
             }
             else if (jenisId == "Pelanggan")
             {
-                query = "SELECT MAX(idPelanggan) FROM pelanggan";
+                query = "SELECT MAX (right(idPelanggan,3)) FROM pelanggan";
             }
             else
             {
@@ -69,17 +69,15 @@ namespace KantjaStuck
             {
                 dr.Read();
                 string fullstring = dr[0].ToString();
-                string kodeUrut = patternKodeUrut.Match(fullstring).Value.ToString();
                 if (jenisId == "Kasir")
                 {
-                    string kodeTahun = patternKodeTahunBulan.Match(fullstring).Value.ToString();
-                    if (fullstring != "" && kodeTahun == tahunBulanIni)
+                    if (fullstring != "")
                     {
-                        next_ID = "KS" + tahunBulanIni + "0" + (int.Parse(kodeUrut) + 1).ToString();
+                        next_ID = tahunBulanIni + "00" + (int.Parse(fullstring) + 1).ToString();
                     }
                     else
                     {
-                        next_ID = "KS" + tahunBulanIni + "01";
+                        next_ID = tahunBulanIni + "001";
 
                     }
                 }
@@ -87,46 +85,43 @@ namespace KantjaStuck
                 {
                     if (fullstring != "")
                     {
-                        next_ID = "MK-" + "000" + (int.Parse(kodeUrut) + 1).ToString();
+                        next_ID = "MK-"+"0" + (int.Parse(fullstring) + 1).ToString();
                     }
                     else
                     {
-                        next_ID = "MK-" + "000" + "1";
+                        next_ID = "MK-"+"0" + "1";
                     }
                 }
                 else if (jenisId == "Minuman")
                 {
                     if (fullstring != "")
                     {
-                        next_ID = "MN-" + "000" + (int.Parse(kodeUrut) + 1).ToString();
+                        next_ID = "MN-"+"0" + (int.Parse(fullstring) + 1).ToString();
                     }
                     else
                     {
-                        next_ID = "MN-" + "000" + "1";
+                        next_ID = "MN-"+"0" + "1";
                     }
                 }
                 else if (jenisId == "Transaksi")
                 {
-                    string kodeTahun = patternKodeTahunBulan.Match(fullstring).Value.ToString();
-                    if (fullstring != "" && kodeTahun == tahunBulanIni)
+                    if (fullstring != "")
                     {
-                        next_ID = "TR" + tahunBulanIni + "-0" + (int.Parse(kodeUrut) + 1).ToString();
+                        next_ID = "TR"+tahunBulanIni + "00" + (int.Parse(fullstring) + 1).ToString();
                     }
                     else
                     {
-                        next_ID = "TR" + tahunBulanIni + "-"+ "01";
+                        next_ID = "TR" + tahunBulanIni + "001";
                     }
                 }else if (jenisId == "Pelanggan")
                 {
-                    string kodeTahun = patternTanggalBulanTahun.Match(fullstring).Value.ToString();
-                    if (fullstring != "" && kodeTahun == tanggalBulanTahunIni)
+                    if (fullstring != "")
                     {
-                        next_ID = "PG" + tanggalBulanTahunIni + "-0" + (int.Parse(kodeUrut) + 1).ToString();
+                        next_ID = "PG" + tanggalBulanTahunIni + "00" + (int.Parse(fullstring) + 1).ToString();
                     }
                     else
                     {
-                        next_ID = "PG" + tanggalBulanTahunIni + "-01";
-
+                        next_ID = "PG" + tanggalBulanTahunIni + "001";
                     }
                 }
                 else
