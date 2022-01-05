@@ -76,7 +76,7 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
  - Menambahkan Menu DataBase
  - Memberikan opsi hapus pada menu admin
  # kontribusi tiap anggota:
- - Wulandari, Akbar Fitrian, Sekhudin:
+ - Wulandari, Akbar Fitrian:
     1. Menambahkan menu laporan menggunakan microsoft reportViewer
     2. Menambahkan opsi hapus pada menu admin dan memperbaiki bug yang ada
    
