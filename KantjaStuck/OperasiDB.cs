@@ -500,7 +500,34 @@ namespace KantjaStuck
                 tb3.Text = "Belum ada pesanan";
                 pb.BackgroundImage = null;
             }
+        }
+        public string getSingleValue(string query)
+        {
+            string singleValue = "0";
+            SqlConnection conn = get_Koneksi();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        singleValue = dr[0].ToString();
+                    }
+                }
+                else
+                {
+                    singleValue = "0";
+                }
+            }
+            catch (Exception ex)
+            {
+                singleValue = "0";
+            }
 
+            return singleValue;
         }
     }
 }

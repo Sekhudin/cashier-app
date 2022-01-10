@@ -261,6 +261,7 @@ namespace KantjaStuck
             dashboard_txGreeting.Text = "Hallo, " + InfoAkun[2].ToString();
             toolStripLabel1.Text = "Dashboard";
 
+            
             string bulanIni = DateTime.Now.ToString("Y");
             int penghasilanBruto = odb.getPenhasilanBruto();
 
@@ -417,6 +418,7 @@ namespace KantjaStuck
                         sumPesananMinuman = sum;
                         kasir_sumTotalMinuman.Text = sumPesananMinuman.ToString("N0");
                     }
+                    kasir_cardPBMenu.BackgroundImage = null;
 
                 }
                 catch (Exception ex)
@@ -1166,6 +1168,13 @@ namespace KantjaStuck
             string gambar = admin_gvTabel.Rows[indexRow].Cells[1].Value.ToString();
             string nama = admin_gvTabel.Rows[indexRow].Cells[2].Value.ToString();
             string harga, statusAdmin, jenisGambar, jenisFile;
+
+            //set readonly ketika cell gv di dliclik
+            TextBox[] admin_GrupTextBox =
+            {
+                admin_cardTxNama, admin_cardTxHarga_orTelp, admin_cardTxStatusAdmin
+            };
+            kom.textBx_ReadOnly(admin_GrupTextBox, true, null);
             try
             {
                 if (indexRow != null)
@@ -1591,10 +1600,23 @@ namespace KantjaStuck
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            string keyParam = "___" + laporan_txBulan.Text + "/" + laporan_txTahun.Text;
+            string queryIncome = "SELECT SUM(totalBayar) FROM transaksi  WHERE tglTransaksi LIKE '" + keyParam + "'";
+            string income = odb.getSingleValue(queryIncome);
+            int totalIncome = 0;
+            if (Information.IsNumeric(income))
+            {
+                totalIncome = int.Parse(income);
+            }
+            else
+            {
+                totalIncome = 0;
+            }
+            string setTypeTotalIncome = "Rp " + totalIncome.ToString("N0");
             string dateSekarang = DateTime.Now.ToString("D");
             string[] parameters =
             {
-                InfoAkun[0], InfoAkun[2], dateSekarang, laporan_txBulan.Text, laporan_txTahun.Text, textBox1.Text
+                InfoAkun[0], InfoAkun[2], dateSekarang, laporan_txBulan.Text, laporan_txTahun.Text, setTypeTotalIncome
             };
             if (laporan_txBulan.Text != "" && laporan_txTahun.Text != "" && laporan_txBulan.TextLength == 2 && laporan_txTahun.TextLength == 4)
             {

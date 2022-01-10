@@ -30,7 +30,7 @@ namespace KantjaStuck
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btMinimize = new System.Windows.Forms.Button();
             this.btClose = new System.Windows.Forms.Button();
             this.wrapperHeader = new System.Windows.Forms.Panel();
@@ -540,7 +540,7 @@ namespace KantjaStuck
             this.panel6.Controls.Add(this.panel4);
             this.panel6.Controls.Add(this.panel3);
             this.panel6.Controls.Add(this.panel2);
-            this.panel6.Location = new System.Drawing.Point(98, 54);
+            this.panel6.Location = new System.Drawing.Point(98, 161);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(786, 287);
             this.panel6.TabIndex = 2;
@@ -2144,14 +2144,14 @@ namespace KantjaStuck
             this.db_gVTabel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.db_gVTabel.Location = new System.Drawing.Point(343, 103);
             this.db_gVTabel.Name = "db_gVTabel";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MediumBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.db_gVTabel.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MediumBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins Medium", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.db_gVTabel.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.db_gVTabel.Size = new System.Drawing.Size(625, 219);
             this.db_gVTabel.TabIndex = 32;
             this.db_gVTabel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.db_gVTabel_cellClick);
@@ -2673,12 +2673,12 @@ namespace KantjaStuck
             this.Controls.Add(this.WrapperMenuNavigation);
             this.Controls.Add(this.wrapperHeader);
             this.Controls.Add(this.wrapperBarPencarian);
+            this.Controls.Add(this.wrapperKasir);
+            this.Controls.Add(this.wrapperDashBoard);
             this.Controls.Add(this.wrapperLaporan);
             this.Controls.Add(this.wrapperProfile);
             this.Controls.Add(this.wrapperDatabase);
             this.Controls.Add(this.wrapperAdmin);
-            this.Controls.Add(this.wrapperKasir);
-            this.Controls.Add(this.wrapperDashBoard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Home";
             this.Opacity = 0D;
