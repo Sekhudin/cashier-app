@@ -37,7 +37,7 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
     4. Implementasi design pada tampilan aplikasi.
  - Akbar F:
     1. menautkan korelasi antar tabel database.
-    2. implementasi aksi.
+    2. implementasi aksi Login.
     3. menentukan aksi.
     4. menambahkan aksi-aksi tambahan.
  - Nandika:
@@ -79,12 +79,12 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
  - Wulandari, Akbar Fitrian:
     1. Menambahkan menu laporan menggunakan microsoft reportViewer
     2. Menambahkan opsi hapus pada menu admin dan memperbaiki bug yang ada
+    3. Memperbaiki bug pada getID
    
  - Azis dan Nandika:
     1. Menambahkan menu database
     2. Menambahkan menu dashboard
-    3. Memperbaiki bug pada getID
-
+    
  # ================================== COMMIT Ketiga (Senin, 10 Januri 2022) ==================================
  # Progress 100% :
  - Pengecekan bug
