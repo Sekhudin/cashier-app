@@ -44,10 +44,12 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
     1. implementasi design login dan aksinya.
     2. menautkan database.
     3. menambahkan splashscreen.
+    4. Implementasi design aplikasi
  - Asis:
     1. menambahkan aksi login (bareng dika)
     2. menentukan design register
     3. implementasi register
+    4. Implementasi database, membuat procedure
 # ================================== COMMIT Kedua (Selasa, 28 Desember 2021) ==================================
 # Progress 60%, Yang ditambahkan:
 - Melengkapi fungsi menu admin.
@@ -62,6 +64,23 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
     3. Memperbaiki bug di form profile.
     4. Menambahkan fungsi update dan lainya di form admin.
  - catatan:
-    1. Problrm solving saat generate noTransaksi,
+    1. Problem solving saat generate noTransaksi,
     2. Pastikan ulang fungsi2 pda menu admin,
     3. rapihkan method yang sudah ada.
+   
+   
+ # ================================== COMMIT Ketiga (Selasa, 28 Desember 2021) ==================================
+ # Progress 90% :
+ - Menambahkan menu laporan
+ - Menambahkan menu dashboard
+ - Menambahkan Menu DataBase
+ - Memberikan opsi hapus pada menu admin
+ # kontribusi tiap anggota:
+ - Wulandari, Akbar Fitrian:
+    1. Menambahkan menu laporan menggunakan microsoft reportViewer
+    2. Menambahkan opsi hapus pada menu admin dan memperbaiki bug yang ada
+   
+ - Azis dan Nandika:
+    1. Menambahkan menu database
+    2. Menambahkan menu dashboard
+    3. Memperbaiki bug pada getID
