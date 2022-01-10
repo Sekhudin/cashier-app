@@ -84,3 +84,13 @@ KantjaStuck merupakan aplikasi kasir untuk warung atau rumah makan
     1. Menambahkan menu database
     2. Menambahkan menu dashboard
     3. Memperbaiki bug pada getID
+
+ # ================================== COMMIT Ketiga (Senin, 10 Januri 2022) ==================================
+ # Progress 100% :
+ - Pengecekan bug
+ - Insaalloh tidak ada bug
+ # kontribusi tiap anggota:
+ - Sekhudin:
+    1. Pengecekan Bug Aplikasi
+ 
+ # ================================== APLIKASI SELESAI (Senin, 10 Januri 2022) ==================================
